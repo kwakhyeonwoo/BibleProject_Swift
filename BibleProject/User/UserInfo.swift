@@ -75,11 +75,11 @@ struct UserInfo: View {
                 TextField("키", text: $height)
                     .keyboardType(.decimalPad)
                     .padding()
-                    .onChange(of: height) {newValue in
-                        if !newValue.allSatisfy({$0.isNumber || $0 == "."}){
+                    .onChange(of: height) {heightValue in
+                        if !heightValue.allSatisfy({$0.isNumber || $0 == "."}){
                             showAlert = true
-                            alertMessage = "숫자만 입력하세요!"
-                            height = newValue.filter{$0.isNumber || $0 == "."}
+                            alertMessage = "키만 입력하세요!"
+                            height = heightValue.filter{$0.isNumber || $0 == "."}
                         }
                     }
             }
@@ -91,6 +91,13 @@ struct UserInfo: View {
                 TextField("몸무게", text: $weight)
                     .keyboardType(.decimalPad)
                     .padding()
+                    .onChange(of: weight){ weightValue in
+                        if !weightValue.allSatisfy({$0.isNumber || $0 == "."}){
+                            showAlert = true
+                            alertMessage = "몸무게만 입력하세요!"
+                            weight = weightValue.filter{$0.isNumber || $0 == "."}
+                        }
+                    }
             }
             .padding(.horizontal)
             
@@ -100,6 +107,13 @@ struct UserInfo: View {
                 TextField("나이", text: $age)
                     .keyboardType(.numberPad)
                     .padding()
+                    .onChange(of: age){ageValue in
+                        if !ageValue.allSatisfy({$0.isNumber || $0 == " "}){
+                            showAlert = true
+                            alertMessage = "키만 입력하세요!"
+                            age = ageValue.filter{$0.isNumber || $0 == " "}
+                        }
+                    }
             }
             .padding(.horizontal)
         }
