@@ -17,13 +17,16 @@ struct UserInfo: View {
     @State var weight: String = ""
     @State var age: String = ""
     
+    //Alert 표시 여부 제어하는 변수
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+    
     var body: some View {
         VStack {
             Image("Paris5")
-                .resizable()
-                .frame(height: 150)
-                .clipShape(Circle())
-                
+            .resizable()
+            .frame(height: 150)
+            .clipShape(Circle())
             
             HStack(alignment: .center) {
                 Text("닉네임: ")
@@ -31,6 +34,7 @@ struct UserInfo: View {
                 TextField("닉네임", text: $nickName)
                     .padding()
                     .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
                     .onAppear() {
                         UITextField.appearance().clearButtonMode = .whileEditing
                     }
@@ -71,6 +75,13 @@ struct UserInfo: View {
                 TextField("키", text: $height)
                     .keyboardType(.decimalPad)
                     .padding()
+                    .onChange(of: height) {newValue in
+                        if !newValue.allSatisfy({$0.isNumber || $0 == "."}){
+                            showAlert = true
+                            alertMessage = "숫자만 입력하세요!"
+                            height = newValue.filter{$0.isNumber || $0 == "."}
+                        }
+                    }
             }
             .padding(.horizontal)
             
@@ -93,17 +104,16 @@ struct UserInfo: View {
             .padding(.horizontal)
         }
         .padding()
-    }
-    
-    //문자열로 받아서 CGFloat로 반환 실패시 nil반환
-    func convertToCGFloat(_ string: String) -> CGFloat? {
-        guard let number = NumberFormatter().number(from: string) else {
-            return nil
+        //showAlert가 true일 때 출력
+        .alert(isPresented: $showAlert){
+            Alert(title: Text("잘못된 입력"), message: Text(alertMessage),
+                  dismissButton: .default(Text("확인"))
+            )
         }
-        return CGFloat(number.floatValue)
     }
 }
 
 #Preview {
     UserInfo()
 }
+
