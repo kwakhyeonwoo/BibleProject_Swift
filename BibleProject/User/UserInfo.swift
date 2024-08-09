@@ -6,10 +6,8 @@
 //
 
 import SwiftUI
-import Foundation
 
 struct UserInfo: View {
-    
     @State var nickName: String = ""
     @State var gender: Bool? = nil
     @State var height: String = ""
@@ -25,7 +23,7 @@ struct UserInfo: View {
     let circleSize: CGFloat = 30
     
     // 색상 배열을 사용하여 버튼의 색상 설정
-    let colors: [Color] = [.black, .blue, .red, .yellow]
+    var colors: [Color] = [.yellow, .blue, .red, .black]
     
     var body: some View {
         VStack(alignment: .center) {
@@ -41,21 +39,33 @@ struct UserInfo: View {
                             let centerX = geometry.size.width / 2
                             let centerY = geometry.size.height / 2
                             let radius = geometry.size.width / 2 + circleSize // 이미지 주위에 버튼 배치할 반지름 설정
+
+                            // 노란색 버튼을 기준으로 설정
+                            let blackIndex = colors.firstIndex(of: .black) ?? 0
+                            let angleForYellow = Angle(degrees: Double(blackIndex) / Double(colors.count) * -180)
+                            let xOffsetForYellow = cos(angleForYellow.radians) * radius
+                            let yOffsetForYellow = sin(angleForYellow.radians) * radius
                             
-                            ForEach(0..<colors.count, id: \.self) { colorindex in
-                                let angle = Angle(degrees: Double(colorindex) / Double(colors.count) * -180)
+                            ForEach(0..<colors.count, id: \.self) { colorIndex in
+                                let angle = Angle(degrees: Double(colorIndex) / Double(colors.count) * -180)
                                 let xOffset = cos(angle.radians) * radius
                                 let yOffset = sin(angle.radians) * radius
+
+                                // 노란색 버튼을 기준으로 이동량 계산
+                                let xShift = xOffsetForYellow - xOffset
+                                let yShift = yOffsetForYellow - yOffset
+                                
                                 Button(action: {
-                                    selectedColor = colors[colorindex] // 버튼 클릭 시 배경색 변경
+                                    selectedColor = colors[colorIndex]
                                 }) {
                                     Circle()
                                         .frame(width: circleSize, height: circleSize)
-                                        .foregroundColor(colors[colorindex])
+                                        .foregroundColor(colors[colorIndex])
                                 }
-                                .position(x: centerX + xOffset, y: centerY + yOffset)
+                                .position(x: centerX + xShift + 78,
+                                          y: centerY + yOffset )
                             }
-                            let colorPickerOffset = radius + 10 // ColorPicker가 곡선 안에 위치하도록 오프셋 설정
+                            let colorPickerOffset = radius + 10
                             let angle = Angle(degrees: Double(colors.count) / Double(colors.count) * -180)
                             let xOffset = cos(angle.radians) * colorPickerOffset
                             let yOffset = sin(angle.radians) * colorPickerOffset
@@ -64,8 +74,7 @@ struct UserInfo: View {
                                 ColorPicker("색상 선택", selection: $selectedColor)
                                     .labelsHidden()
                             }
-                            .position(x: centerX + xOffset, y: centerY + yOffset)
-                            // ColorPicker 배치
+                            .position(x: centerX + xOffset + 216, y: centerY + yOffset)
                         }
                     )
                     .frame(width: 300, height: 300) // ZStack의 크기 설정
