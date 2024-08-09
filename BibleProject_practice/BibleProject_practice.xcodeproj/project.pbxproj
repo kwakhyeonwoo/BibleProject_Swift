@@ -1,0 +1,603 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A214EEF2C5A24E2007F6BE9 /* BibleProject_practiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A214EEE2C5A24E2007F6BE9 /* BibleProject_practiceApp.swift */; };
+		4A214EF12C5A24E2007F6BE9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A214EF02C5A24E2007F6BE9 /* ContentView.swift */; };
+		4A214EF32C5A24E3007F6BE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A214EF22C5A24E3007F6BE9 /* Assets.xcassets */; };
+		4A214EF62C5A24E3007F6BE9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A214EF52C5A24E3007F6BE9 /* Preview Assets.xcassets */; };
+		4A214F002C5A24E3007F6BE9 /* BibleProject_practiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A214EFF2C5A24E3007F6BE9 /* BibleProject_practiceTests.swift */; };
+		4A214F0A2C5A24E3007F6BE9 /* BibleProject_practiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A214F092C5A24E3007F6BE9 /* BibleProject_practiceUITests.swift */; };
+		4A214F0C2C5A24E3007F6BE9 /* BibleProject_practiceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A214F0B2C5A24E3007F6BE9 /* BibleProject_practiceUITestsLaunchTests.swift */; };
+		4AF396882C64DF74009A5E8A /* FirstPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF396872C64DF74009A5E8A /* FirstPageView.swift */; };
+		4AF3968A2C64DFD6009A5E8A /* SecondPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF396892C64DFD6009A5E8A /* SecondPageView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4A214EFC2C5A24E3007F6BE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A214EE32C5A24E2007F6BE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A214EEA2C5A24E2007F6BE9;
+			remoteInfo = BibleProject_practice;
+		};
+		4A214F062C5A24E3007F6BE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A214EE32C5A24E2007F6BE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A214EEA2C5A24E2007F6BE9;
+			remoteInfo = BibleProject_practice;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4A214EEB2C5A24E2007F6BE9 /* BibleProject_practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BibleProject_practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A214EEE2C5A24E2007F6BE9 /* BibleProject_practiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleProject_practiceApp.swift; sourceTree = "<group>"; };
+		4A214EF02C5A24E2007F6BE9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4A214EF22C5A24E3007F6BE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4A214EF52C5A24E3007F6BE9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4A214EFB2C5A24E3007F6BE9 /* BibleProject_practiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BibleProject_practiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A214EFF2C5A24E3007F6BE9 /* BibleProject_practiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleProject_practiceTests.swift; sourceTree = "<group>"; };
+		4A214F052C5A24E3007F6BE9 /* BibleProject_practiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BibleProject_practiceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A214F092C5A24E3007F6BE9 /* BibleProject_practiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleProject_practiceUITests.swift; sourceTree = "<group>"; };
+		4A214F0B2C5A24E3007F6BE9 /* BibleProject_practiceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleProject_practiceUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4AF396872C64DF74009A5E8A /* FirstPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageView.swift; sourceTree = "<group>"; };
+		4AF396892C64DFD6009A5E8A /* SecondPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPageView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A214EE82C5A24E2007F6BE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A214EF82C5A24E3007F6BE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A214F022C5A24E3007F6BE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A0FB3652C65F65800FD2AF6 /* mainPageView */ = {
+			isa = PBXGroup;
+			children = (
+				4AF396872C64DF74009A5E8A /* FirstPageView.swift */,
+				4AF396892C64DFD6009A5E8A /* SecondPageView.swift */,
+			);
+			path = mainPageView;
+			sourceTree = "<group>";
+		};
+		4A214EE22C5A24E2007F6BE9 = {
+			isa = PBXGroup;
+			children = (
+				4A214EED2C5A24E2007F6BE9 /* BibleProject_practice */,
+				4A214EFE2C5A24E3007F6BE9 /* BibleProject_practiceTests */,
+				4A214F082C5A24E3007F6BE9 /* BibleProject_practiceUITests */,
+				4A214EEC2C5A24E2007F6BE9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4A214EEC2C5A24E2007F6BE9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A214EEB2C5A24E2007F6BE9 /* BibleProject_practice.app */,
+				4A214EFB2C5A24E3007F6BE9 /* BibleProject_practiceTests.xctest */,
+				4A214F052C5A24E3007F6BE9 /* BibleProject_practiceUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A214EED2C5A24E2007F6BE9 /* BibleProject_practice */ = {
+			isa = PBXGroup;
+			children = (
+				4A214EF02C5A24E2007F6BE9 /* ContentView.swift */,
+				4A214EEE2C5A24E2007F6BE9 /* BibleProject_practiceApp.swift */,
+				4A0FB3652C65F65800FD2AF6 /* mainPageView */,
+				4A214EF22C5A24E3007F6BE9 /* Assets.xcassets */,
+				4A214EF42C5A24E3007F6BE9 /* Preview Content */,
+			);
+			path = BibleProject_practice;
+			sourceTree = "<group>";
+		};
+		4A214EF42C5A24E3007F6BE9 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4A214EF52C5A24E3007F6BE9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4A214EFE2C5A24E3007F6BE9 /* BibleProject_practiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				4A214EFF2C5A24E3007F6BE9 /* BibleProject_practiceTests.swift */,
+			);
+			path = BibleProject_practiceTests;
+			sourceTree = "<group>";
+		};
+		4A214F082C5A24E3007F6BE9 /* BibleProject_practiceUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4A214F092C5A24E3007F6BE9 /* BibleProject_practiceUITests.swift */,
+				4A214F0B2C5A24E3007F6BE9 /* BibleProject_practiceUITestsLaunchTests.swift */,
+			);
+			path = BibleProject_practiceUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A214EEA2C5A24E2007F6BE9 /* BibleProject_practice */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A214F0F2C5A24E3007F6BE9 /* Build configuration list for PBXNativeTarget "BibleProject_practice" */;
+			buildPhases = (
+				4A214EE72C5A24E2007F6BE9 /* Sources */,
+				4A214EE82C5A24E2007F6BE9 /* Frameworks */,
+				4A214EE92C5A24E2007F6BE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BibleProject_practice;
+			productName = BibleProject_practice;
+			productReference = 4A214EEB2C5A24E2007F6BE9 /* BibleProject_practice.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4A214EFA2C5A24E3007F6BE9 /* BibleProject_practiceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A214F122C5A24E3007F6BE9 /* Build configuration list for PBXNativeTarget "BibleProject_practiceTests" */;
+			buildPhases = (
+				4A214EF72C5A24E3007F6BE9 /* Sources */,
+				4A214EF82C5A24E3007F6BE9 /* Frameworks */,
+				4A214EF92C5A24E3007F6BE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A214EFD2C5A24E3007F6BE9 /* PBXTargetDependency */,
+			);
+			name = BibleProject_practiceTests;
+			productName = BibleProject_practiceTests;
+			productReference = 4A214EFB2C5A24E3007F6BE9 /* BibleProject_practiceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4A214F042C5A24E3007F6BE9 /* BibleProject_practiceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A214F152C5A24E3007F6BE9 /* Build configuration list for PBXNativeTarget "BibleProject_practiceUITests" */;
+			buildPhases = (
+				4A214F012C5A24E3007F6BE9 /* Sources */,
+				4A214F022C5A24E3007F6BE9 /* Frameworks */,
+				4A214F032C5A24E3007F6BE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A214F072C5A24E3007F6BE9 /* PBXTargetDependency */,
+			);
+			name = BibleProject_practiceUITests;
+			productName = BibleProject_practiceUITests;
+			productReference = 4A214F052C5A24E3007F6BE9 /* BibleProject_practiceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A214EE32C5A24E2007F6BE9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					4A214EEA2C5A24E2007F6BE9 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					4A214EFA2C5A24E3007F6BE9 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 4A214EEA2C5A24E2007F6BE9;
+					};
+					4A214F042C5A24E3007F6BE9 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 4A214EEA2C5A24E2007F6BE9;
+					};
+				};
+			};
+			buildConfigurationList = 4A214EE62C5A24E2007F6BE9 /* Build configuration list for PBXProject "BibleProject_practice" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4A214EE22C5A24E2007F6BE9;
+			productRefGroup = 4A214EEC2C5A24E2007F6BE9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4A214EEA2C5A24E2007F6BE9 /* BibleProject_practice */,
+				4A214EFA2C5A24E3007F6BE9 /* BibleProject_practiceTests */,
+				4A214F042C5A24E3007F6BE9 /* BibleProject_practiceUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4A214EE92C5A24E2007F6BE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A214EF62C5A24E3007F6BE9 /* Preview Assets.xcassets in Resources */,
+				4A214EF32C5A24E3007F6BE9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A214EF92C5A24E3007F6BE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A214F032C5A24E3007F6BE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A214EE72C5A24E2007F6BE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A214EF12C5A24E2007F6BE9 /* ContentView.swift in Sources */,
+				4AF396882C64DF74009A5E8A /* FirstPageView.swift in Sources */,
+				4A214EEF2C5A24E2007F6BE9 /* BibleProject_practiceApp.swift in Sources */,
+				4AF3968A2C64DFD6009A5E8A /* SecondPageView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A214EF72C5A24E3007F6BE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A214F002C5A24E3007F6BE9 /* BibleProject_practiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A214F012C5A24E3007F6BE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A214F0C2C5A24E3007F6BE9 /* BibleProject_practiceUITestsLaunchTests.swift in Sources */,
+				4A214F0A2C5A24E3007F6BE9 /* BibleProject_practiceUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4A214EFD2C5A24E3007F6BE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A214EEA2C5A24E2007F6BE9 /* BibleProject_practice */;
+			targetProxy = 4A214EFC2C5A24E3007F6BE9 /* PBXContainerItemProxy */;
+		};
+		4A214F072C5A24E3007F6BE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A214EEA2C5A24E2007F6BE9 /* BibleProject_practice */;
+			targetProxy = 4A214F062C5A24E3007F6BE9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4A214F0D2C5A24E3007F6BE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4A214F0E2C5A24E3007F6BE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4A214F102C5A24E3007F6BE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BibleProject_practice/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "first.BibleProject-practice";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4A214F112C5A24E3007F6BE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BibleProject_practice/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "first.BibleProject-practice";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4A214F132C5A24E3007F6BE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "first.BibleProject-practiceTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BibleProject_practice.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BibleProject_practice";
+			};
+			name = Debug;
+		};
+		4A214F142C5A24E3007F6BE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "first.BibleProject-practiceTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BibleProject_practice.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BibleProject_practice";
+			};
+			name = Release;
+		};
+		4A214F162C5A24E3007F6BE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "first.BibleProject-practiceUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BibleProject_practice;
+			};
+			name = Debug;
+		};
+		4A214F172C5A24E3007F6BE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "first.BibleProject-practiceUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BibleProject_practice;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A214EE62C5A24E2007F6BE9 /* Build configuration list for PBXProject "BibleProject_practice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A214F0D2C5A24E3007F6BE9 /* Debug */,
+				4A214F0E2C5A24E3007F6BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A214F0F2C5A24E3007F6BE9 /* Build configuration list for PBXNativeTarget "BibleProject_practice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A214F102C5A24E3007F6BE9 /* Debug */,
+				4A214F112C5A24E3007F6BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A214F122C5A24E3007F6BE9 /* Build configuration list for PBXNativeTarget "BibleProject_practiceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A214F132C5A24E3007F6BE9 /* Debug */,
+				4A214F142C5A24E3007F6BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A214F152C5A24E3007F6BE9 /* Build configuration list for PBXNativeTarget "BibleProject_practiceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A214F162C5A24E3007F6BE9 /* Debug */,
+				4A214F172C5A24E3007F6BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A214EE32C5A24E2007F6BE9 /* Project object */;
+}
