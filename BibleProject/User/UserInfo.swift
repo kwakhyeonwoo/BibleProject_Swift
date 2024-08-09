@@ -28,56 +28,56 @@ struct UserInfo: View {
     var body: some View {
         VStack(alignment: .center) {
             // 원 이미지와 원형 버튼들
-            ZStack(alignment: .center) {
+            ZStack(alignment: .center){
                 Image("Paris5")
                     .resizable()
                     .frame(width: 150, height: 150)
                     .clipShape(Circle())
-                    .colorMultiply(selectedColor) // 선택된 색상에 따라 이미지 색 변경
+                    .colorMultiply(selectedColor)
                     .overlay(
-                        GeometryReader { geometry in
+                        GeometryReader{geometry in
                             let centerX = geometry.size.width / 2
                             let centerY = geometry.size.height / 2
-                            let radius = geometry.size.width / 2 + circleSize // 이미지 주위에 버튼 배치할 반지름 설정
-
-                            // 노란색 버튼을 기준으로 설정
-                            let blackIndex = colors.firstIndex(of: .black) ?? 0
-                            let angleForYellow = Angle(degrees: Double(blackIndex) / Double(colors.count) * -180)
-                            let xOffsetForYellow = cos(angleForYellow.radians) * radius
-                            let yOffsetForYellow = sin(angleForYellow.radians) * radius
+                            //이미지 주위 버튼 배치할 반지름
+                            let radius = geometry.size.width / 2 + circleSize
                             
-                            ForEach(0..<colors.count, id: \.self) { colorIndex in
+                            //검정 버튼을 기준으로 설정, black이 없으면 0을 대입하기 위해 ?? 0 사용
+                            let blackIndex = colors.firstIndex(of: .black) ?? 0
+                            let angleForBlack = Angle(degrees: Double(blackIndex) / Double(colors.count) * -180)
+                            let xOffsetForBlack = cos(angleForBlack.radians) * radius
+                            let yOffsetForBlack = sin(angleForBlack.radians) * radius
+                            
+                            ForEach(0..<colors.count, id: \.self){colorIndex in
                                 let angle = Angle(degrees: Double(colorIndex) / Double(colors.count) * -180)
                                 let xOffset = cos(angle.radians) * radius
                                 let yOffset = sin(angle.radians) * radius
-
-                                // 노란색 버튼을 기준으로 이동량 계산
-                                let xShift = xOffsetForYellow - xOffset
-                                let yShift = yOffsetForYellow - yOffset
+                                
+                                //검정 버튼을 기준으로 이동량 계산
+                                let xMoveBlackButton = xOffsetForBlack - xOffset
+                                let yMoveBlackButton = yOffsetForBlack - yOffset
                                 
                                 Button(action: {
                                     selectedColor = colors[colorIndex]
-                                }) {
+                                }){
                                     Circle()
                                         .frame(width: circleSize, height: circleSize)
                                         .foregroundColor(colors[colorIndex])
                                 }
-                                .position(x: centerX + xShift + 78,
-                                          y: centerY + yOffset )
+                                .position(x: centerX + xMoveBlackButton + 78, y: centerY + yOffset)
                             }
                             let colorPickerOffset = radius + 10
                             let angle = Angle(degrees: Double(colors.count) / Double(colors.count) * -180)
                             let xOffset = cos(angle.radians) * colorPickerOffset
                             let yOffset = sin(angle.radians) * colorPickerOffset
                             
-                            VStack {
+                            VStack{
                                 ColorPicker("색상 선택", selection: $selectedColor)
                                     .labelsHidden()
                             }
                             .position(x: centerX + xOffset + 216, y: centerY + yOffset)
                         }
                     )
-                    .frame(width: 300, height: 300) // ZStack의 크기 설정
+                    .frame(width: 300, height: 300)
             }
             .padding(.bottom, -50)
             
@@ -182,3 +182,4 @@ struct UserInfo: View {
 #Preview {
     UserInfo()
 }
+
