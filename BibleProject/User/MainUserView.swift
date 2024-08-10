@@ -70,7 +70,7 @@ struct MainUserView: View {
                 recommendedCalories = "성별이 설정되지 않았습니다"
             }
             
-            alertMessage = "권장 칼로리는 \(recommendedCalories)."
+            alertMessage = "권장 칼로리는 \(recommendedCalories)입니다."
             showAlert = true
         }
 
