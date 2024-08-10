@@ -11,7 +11,7 @@ import SwiftUI
 struct BibleProjectApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            UserInfo(requireUser: StateUserModel())
         }
     }
 }
