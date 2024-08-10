@@ -36,19 +36,22 @@ struct UserInfo: View {
                         .resizable()
                         .frame(width: 150, height: 150)
                         .clipShape(Circle())
-                        .colorMultiply(selectedColor) // 선택된 색상에 따라 이미지 색 변경
+                        // 선택된 색상에 따라 이미지 색 변경
+                        .colorMultiply(selectedColor)
                         .overlay(
                             GeometryReader { geometry in
                                 let centerX = geometry.size.width / 2
                                 let centerY = geometry.size.height / 2
-                                let radius = geometry.size.width / 2 + circleSize // 이미지 주위에 버튼 배치할 반지름 설정
+                                // 이미지 주위에 버튼 배치할 반지름 설정
+                                let radius = geometry.size.width / 2 + circleSize
                                 
                                 ForEach(0..<colors.count, id: \.self) { colorIndex in
                                     let angle = Angle(degrees: Double(colorIndex) / Double(colors.count) * -180)
                                     let xOffset = cos(angle.radians) * radius
                                     let yOffset = sin(angle.radians) * radius
                                     Button(action: {
-                                        selectedColor = colors[colorIndex] // 버튼 클릭 시 배경색 변경
+                                        // 버튼 클릭 시 배경색 변경
+                                        selectedColor = colors[colorIndex]
                                     }) {
                                         Circle()
                                             .frame(width: circleSize, height: circleSize)
@@ -57,7 +60,8 @@ struct UserInfo: View {
                                     .position(x: centerX + xOffset, y: centerY + yOffset)
                                 }
                                 
-                                let colorPickerOffset = radius + 10 // ColorPicker가 곡선 안에 위치하도록 오프셋 설정
+                                // ColorPicker가 곡선 안에 위치하도록 오프셋 설정
+                                let colorPickerOffset = radius + 10
                                 let angle = Angle(degrees: Double(colors.count) / Double(colors.count) * -180)
                                 let xOffset = cos(angle.radians) * colorPickerOffset
                                 let yOffset = sin(angle.radians) * colorPickerOffset
@@ -66,11 +70,13 @@ struct UserInfo: View {
                                     ColorPicker("색상 선택", selection: $selectedColor)
                                         .labelsHidden()
                                 }
-                                .position(x: centerX + xOffset, y: centerY + yOffset)
                                 // ColorPicker 배치
+                                .position(x: centerX + xOffset, y: centerY + yOffset)
+                                
                             }
                         )
-                        .frame(width: 300, height: 300) // ZStack의 크기 설정
+                        // ZStack의 크기 설정
+                        .frame(width: 300, height: 300)
                 }
                 .padding(.bottom, -50)
                 
