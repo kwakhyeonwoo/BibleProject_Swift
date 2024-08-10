@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		671EAAA42C6726B7000E07E9 /* MainUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671EAAA32C6726B7000E07E9 /* MainUserView.swift */; };
+		671EAAA62C672A98000E07E9 /* StateUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671EAAA52C672A98000E07E9 /* StateUserModel.swift */; };
 		67341E702C60726600808340 /* BibleProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67341E6F2C60726600808340 /* BibleProjectApp.swift */; };
 		67341E722C60726600808340 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67341E712C60726600808340 /* ContentView.swift */; };
 		67341E742C60726800808340 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67341E732C60726800808340 /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		671EAAA32C6726B7000E07E9 /* MainUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUserView.swift; sourceTree = "<group>"; };
+		671EAAA52C672A98000E07E9 /* StateUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateUserModel.swift; sourceTree = "<group>"; };
 		67341E6C2C60726600808340 /* BibleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BibleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67341E6F2C60726600808340 /* BibleProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleProjectApp.swift; sourceTree = "<group>"; };
 		67341E712C60726600808340 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		671EAAA72C672DB3000E07E9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				671EAAA52C672A98000E07E9 /* StateUserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		67341E632C60726600808340 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +108,7 @@
 		67341E6E2C60726600808340 /* BibleProject */ = {
 			isa = PBXGroup;
 			children = (
+				671EAAA72C672DB3000E07E9 /* Model */,
 				67341E9B2C60BBC700808340 /* User */,
 				67341E6F2C60726600808340 /* BibleProjectApp.swift */,
 				67341E712C60726600808340 /* ContentView.swift */,
@@ -134,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				67341E992C60734100808340 /* UserInfo.swift */,
+				671EAAA32C6726B7000E07E9 /* MainUserView.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -268,6 +282,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				671EAAA62C672A98000E07E9 /* StateUserModel.swift in Sources */,
+				671EAAA42C6726B7000E07E9 /* MainUserView.swift in Sources */,
 				67341E722C60726600808340 /* ContentView.swift in Sources */,
 				67341E9A2C60734100808340 /* UserInfo.swift in Sources */,
 				67341E702C60726600808340 /* BibleProjectApp.swift in Sources */,
