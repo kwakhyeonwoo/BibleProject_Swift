@@ -45,19 +45,34 @@ struct MainUserView: View {
                 Button(action: {
                     SuggestCal()
                 }){
-                    Text("권장 칼로리")
+                    Text("나의 권장 칼로리 확인하기")
                 }
-                
+                .padding()
             }
+            .alert(isPresented: $showAlert){
+                Alert(title: Text("\(user.nickName)의 권장 칼로리는"), message: Text(alertMessage), dismissButton: .default(Text("확인")))
+            }
+            
         }
         
         
     }
     func SuggestCal() {
-        if (user.gender == true) {
-            let MansCal = (Double(user.height)!) - 100 * 0.9 * 33
+            let heightValue = Double(user.height) ?? 0
+            //입력 값 문자열로 저장
+            var recommendedCalories: String
+            
+            if user.gender == true {
+                recommendedCalories = String(format: "%.0f", (heightValue - 100) * 0.9 * 33)
+            } else if user.gender == false {
+                recommendedCalories = String(format: "%.0f", (heightValue - 90) * 0.9 * 33)
+            } else { // 성별이 설정되지 않은 경우
+                recommendedCalories = "성별이 설정되지 않았습니다"
+            }
+            
+            alertMessage = "권장 칼로리는 \(recommendedCalories)."
+            showAlert = true
         }
-    }
 
 }
 #Preview {
