@@ -16,7 +16,7 @@ struct MainUserView: View {
     
     var body: some View {
         NavigationView{
-            VStack{
+            VStack(alignment : .center){
                 NavigationLink(destination: InputFoodCalorie()){
                     Image("Paris5")
                         .resizable()
@@ -55,7 +55,28 @@ struct MainUserView: View {
             
         }
         
-        
+        //하단 TabView설정
+        TabView {
+            Text("First")
+                .hidden()
+                .tabItem {
+                    Image(systemName: "calendar")
+                    Text("calender")
+                }
+            Text("Second")
+                .hidden()
+                .tabItem {
+                    Image(systemName: "2.square.fill")
+                    Text("Home")
+                }
+            Text("Third")
+                .hidden()
+                .tabItem {
+                    Image(systemName: "person.fill")
+                    Text("MyPage")
+                }
+        }
+        .font(.headline)
     }
     func SuggestCal() {
             let heightValue = Double(user.height) ?? 0
@@ -72,6 +93,7 @@ struct MainUserView: View {
             
             alertMessage = "권장 칼로리는 \(recommendedCalories)입니다."
             showAlert = true
+        
         }
 
 }
