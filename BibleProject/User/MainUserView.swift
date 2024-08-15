@@ -12,19 +12,20 @@ struct MainUserView: View {
     @State private var todayCalorie: String = ""
     @State private var showAlert = false
     @State private var alertMessage = ""
-
+    
+    @State private var selectedTab: Int? = nil
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 110) {
-                Spacer() // 윗부분에 Spacer 추가하여 중앙 배치
+                Spacer()
 
                 VStack(alignment: .center, spacing: 16) {
-                    NavigationLink(destination: InputFoodCalorie()) {
-                        Image("Paris5")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 200, height: 250)
-                    }
+                    Image("Paris5")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 150, height: 300)
+                        .background(Color.yellow)
                     
                     Text("\(user.nickName)님 반갑습니다")
                     
@@ -40,7 +41,7 @@ struct MainUserView: View {
                                     todayCalorie = calorie.filter { $0.isNumber || $0 == "." }
                                 }
                             }
-                    } // HStack
+                    }
                     
                     Button(action: {
                         SuggestCal()
@@ -51,37 +52,51 @@ struct MainUserView: View {
                 }
                 .padding()
 
-                Spacer() // 하단에 Spacer 추가하여 중앙 배치
+                Spacer()
 
-                ZStack{
-                    TabView {
-                        Text("First")
-                            .hidden()
-                            .tabItem {
+                HStack(spacing: 100){
+                    NavigationLink(destination: CalendarView(), tag: 1, selection: $selectedTab){
+                        Button(action: {
+                            selectedTab = 1
+                        }){
+                            VStack{
                                 Image(systemName: "calendar")
-                                Text("Calendar")
+                                    .font(.system(size: 30))
                             }
-                        Text("Second")
-                            .hidden()
-                            .tabItem {
-                                Image(systemName: "2.square.fill")
-                                Text("Home")
-                            }
-                        Text("Third")
-                            .hidden()
-                            .tabItem {
-                                Image(systemName: "person.fill")
-                                Text("MyPage")
-                            }
+                        }
                     }
-                    .font(.headline)
+                    
+                    NavigationLink(destination: UserInfo(requireUser: StateUserModel()), tag: 2, selection: $selectedTab){
+                        Button(action: {
+                            selectedTab = 2
+                        }){
+                            VStack{
+                                Image(systemName: "house")
+                                    .font(.system(size: 30))
+                            }
+                        }
+                    }
+                    
+                    NavigationLink(destination: UserSetting(), tag: 3, selection: $selectedTab){
+                        Button(action: {
+                            selectedTab = 3
+                        }){
+                            VStack{
+                                Image(systemName: "person.fill")
+                                    .font(.system(size: 30))
+                            }
+                        }
+                    }
                 }
-                
+                .font(.headline)
+                .padding(.bottom, 100)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.yellow)
             .alert(isPresented: $showAlert) {
                 Alert(title: Text("\(user.nickName)의 권장 칼로리는"), message: Text(alertMessage), dismissButton: .default(Text("확인")))
+            }
+            .onTapGesture {
+                hideKeyboard()
             }
         }
     }
@@ -100,6 +115,13 @@ struct MainUserView: View {
         
         alertMessage = "권장 칼로리는 \(recommendedCalories)입니다."
         showAlert = true
+    }
+}
+
+//외부 공간 클릭시 키보드 내려감
+extension View{
+    func hideKeyboard(){
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 

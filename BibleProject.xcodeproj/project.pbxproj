@@ -12,6 +12,8 @@
 		671EAAA92C674213000E07E9 /* InputFoodCalorie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671EAAA82C674213000E07E9 /* InputFoodCalorie.swift */; };
 		671EAAAC2C674469000E07E9 /* FirstPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671EAAAB2C674469000E07E9 /* FirstPageView.swift */; };
 		671EAAAE2C67449B000E07E9 /* SecondPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671EAAAD2C67449B000E07E9 /* SecondPageView.swift */; };
+		671EAAB02C6CD389000E07E9 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671EAAAF2C6CD389000E07E9 /* CalendarView.swift */; };
+		671EAAB22C6DCA47000E07E9 /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671EAAB12C6DCA47000E07E9 /* UserSetting.swift */; };
 		67341E702C60726600808340 /* BibleProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67341E6F2C60726600808340 /* BibleProjectApp.swift */; };
 		67341E722C60726600808340 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67341E712C60726600808340 /* ContentView.swift */; };
 		67341E742C60726800808340 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67341E732C60726800808340 /* Assets.xcassets */; };
@@ -45,6 +47,8 @@
 		671EAAA82C674213000E07E9 /* InputFoodCalorie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFoodCalorie.swift; sourceTree = "<group>"; };
 		671EAAAB2C674469000E07E9 /* FirstPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageView.swift; sourceTree = "<group>"; };
 		671EAAAD2C67449B000E07E9 /* SecondPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPageView.swift; sourceTree = "<group>"; };
+		671EAAAF2C6CD389000E07E9 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		671EAAB12C6DCA47000E07E9 /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		67341E6C2C60726600808340 /* BibleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BibleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67341E6F2C60726600808340 /* BibleProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleProjectApp.swift; sourceTree = "<group>"; };
 		67341E712C60726600808340 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -165,6 +169,8 @@
 				67341E992C60734100808340 /* UserInfo.swift */,
 				671EAAA32C6726B7000E07E9 /* MainUserView.swift */,
 				671EAAA82C674213000E07E9 /* InputFoodCalorie.swift */,
+				671EAAAF2C6CD389000E07E9 /* CalendarView.swift */,
+				671EAAB12C6DCA47000E07E9 /* UserSetting.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -302,8 +308,10 @@
 				671EAAAC2C674469000E07E9 /* FirstPageView.swift in Sources */,
 				671EAAA62C672A98000E07E9 /* StateUserModel.swift in Sources */,
 				671EAAA42C6726B7000E07E9 /* MainUserView.swift in Sources */,
+				671EAAB22C6DCA47000E07E9 /* UserSetting.swift in Sources */,
 				671EAAAE2C67449B000E07E9 /* SecondPageView.swift in Sources */,
 				67341E722C60726600808340 /* ContentView.swift in Sources */,
+				671EAAB02C6CD389000E07E9 /* CalendarView.swift in Sources */,
 				67341E9A2C60734100808340 /* UserInfo.swift in Sources */,
 				671EAAA92C674213000E07E9 /* InputFoodCalorie.swift in Sources */,
 				67341E702C60726600808340 /* BibleProjectApp.swift in Sources */,
