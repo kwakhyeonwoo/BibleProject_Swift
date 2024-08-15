@@ -7,9 +7,16 @@
 
 import SwiftUI
 
-struct CalendarView : View {
+struct CalendarView : View{
+    
+    @State private var date = Date()
     var body: some View{
-        DatePicker(selection: .constant(Date()), label: { Text("Date") })
+        DatePicker(
+            "Start Date",
+            selection: $date,
+            displayedComponents: [.date]
+        )
+        .datePickerStyle(.graphical)
     }
 }
 
