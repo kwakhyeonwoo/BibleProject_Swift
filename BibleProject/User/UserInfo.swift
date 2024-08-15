@@ -10,21 +10,16 @@ import Foundation
 
 struct UserInfo: View {
     
-    //모델을 따로 분류하면서 가용성 증가
     @ObservedObject var requireUser: StateUserModel
     
-    // Alert 표시 여부 제어하는 변수
     @State private var showAlert = false
     @State private var alertMessage = ""
     
-    // 추가된 상태 변수
     @State private var selectedColor: Color = .white
     
-    // 클릭 시 화면 전환하기
     @State private var navigateToMainUserView = false
     let circleSize: CGFloat = 30
     
-    // 색상 배열을 사용하여 버튼의 색상 설정
     let colors: [Color] = [.black, .blue, .red, .yellow]
     
     var body: some View {
@@ -75,12 +70,10 @@ struct UserInfo: View {
                                 
                             }
                         )
-                        // ZStack의 크기 설정
                         .frame(width: 300, height: 300)
                 }
                 .padding(.bottom, -50)
                 
-                // 기존 폼 레이아웃
                 Group {
                     HStack {
                         Text("닉네임: ")
