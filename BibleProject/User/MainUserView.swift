@@ -12,6 +12,7 @@ struct MainUserView: View {
     @State private var todayCalorie: String = ""
     @State private var showAlert = false
     @State private var alertMessage = ""
+//    @State private var nowCalorie : Int = 0
     
     @State private var selectedTab: Int? = nil
     
@@ -21,11 +22,14 @@ struct MainUserView: View {
                 Spacer()
 
                 VStack(alignment: .center, spacing: 16) {
-                    Image("Paris5")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 150, height: 300)
-                        .background(Color.yellow)
+                    NavigationLink(destination: InputFoodCalorie()){
+                        Image("Paris5")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 150, height: 300)
+                            .background(Color.yellow)
+                            
+                    }
                     
                     Text("\(user.nickName)님 반갑습니다")
                     
@@ -41,6 +45,10 @@ struct MainUserView: View {
                                     todayCalorie = calorie.filter { $0.isNumber || $0 == "." }
                                 }
                             }
+                    }
+                    
+                    HStack{
+                        Text("현재 칼로리: ")
                     }
                     
                     Button(action: {
@@ -106,9 +114,11 @@ struct MainUserView: View {
         var recommendedCalories: String
         
         if user.gender == true {
+            //남자 권장 칼로리
             recommendedCalories = String(format: "%.0f", (heightValue - 100) * 0.9 * 33)
         } else if user.gender == false {
-            recommendedCalories = String(format: "%.0f", (heightValue - 90) * 0.9 * 33)
+            //여자 권장 칼로리
+            recommendedCalories = String(format: "%.0f", (heightValue - 110) * 0.9 * 33)
         } else {
             recommendedCalories = "성별이 설정되지 않았습니다."
         }

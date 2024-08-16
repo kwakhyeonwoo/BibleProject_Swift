@@ -13,6 +13,7 @@ struct SecondPageView: View {
     @State private var moveUserInfo = false
 
     var body: some View {
+        
         NavigationView {
             VStack(spacing: 20) {
                 Spacer()

@@ -12,6 +12,7 @@ struct FirstPageView: View {
     @State private var navigateToNextPage = false
 
     var body: some View {
+        
         VStack {
             if navigateToNextPage {
                 SecondPageView()
