@@ -14,7 +14,7 @@ struct SecondPageView: View {
 
     var body: some View {
         
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 20) {
                 Spacer()
                 
@@ -75,6 +75,7 @@ struct SecondPageView: View {
                 Spacer()
             }
             .padding()
+            .navigationBarTitle("")
             .navigationBarHidden(true)
         }
     }
