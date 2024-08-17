@@ -12,7 +12,7 @@ struct MainUserView: View {
     @State private var todayCalorie: String = ""
     @State private var showAlert = false
     @State private var alertMessage = ""
-//    @State private var nowCalorie : Int = 0
+    @State private var nowCalorie : Int = 0
     
     @State private var selectedTab: Int? = nil
     
@@ -22,7 +22,7 @@ struct MainUserView: View {
                 Spacer()
 
                 VStack(alignment: .center, spacing: 16) {
-                    NavigationLink(destination: InputFoodCalorie()){
+                    NavigationLink(destination: InputFoodCalorie(nowCalorie: $nowCalorie)){
                         Image("Paris5")
                             .resizable()
                             .scaledToFill()
@@ -49,6 +49,7 @@ struct MainUserView: View {
                     
                     HStack{
                         Text("현재 칼로리: ")
+                        Text("\(nowCalorie)")
                     }
                     
                     Button(action: {

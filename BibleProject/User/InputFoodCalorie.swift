@@ -10,8 +10,9 @@ import SwiftUI
 struct InputFoodCalorie : View {
     @State private var food : String = ""
     @State private var calorie : String = ""
-    @State private var addButton : Bool = false
-//    @Binding var nowCalorie : Int
+    @Binding var nowCalorie : Int
+    //현재 뷰 닫기 위해 설정
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View{
         VStack{
@@ -47,7 +48,12 @@ struct InputFoodCalorie : View {
                 }
                 
                 Button(action: {
-                    self.addButton = true
+                    if let calorieInt = Int(calorie){
+                        nowCalorie += calorieInt
+                    }
+                    //현재 뷰 닫고 부모 뷰로 이동
+                    self.presentationMode.wrappedValue.dismiss()
+                    
                 }){
                     Text("추가")
                         .padding()
@@ -57,9 +63,10 @@ struct InputFoodCalorie : View {
                 }
             }
         }
+        .padding()
     }
 }
 
-#Preview {
-    InputFoodCalorie()
-}
+//#Preview {
+//    InputFoodCalorie()
+//}
