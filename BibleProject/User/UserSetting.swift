@@ -13,6 +13,8 @@ struct UserSetting : View {
     @State private var newWeight : String = ""
     @State private var newHeight : String = ""
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         NavigationStack{
             VStack(alignment: .center){
@@ -54,6 +56,26 @@ struct UserSetting : View {
                 }//HStack
                 .frame(maxWidth: .infinity)
                 .padding()
+                
+                Button(action: {
+                    if !newHeight.isEmpty {
+                        userRequire.height = newHeight
+                    }
+                    
+                    if !newWeight.isEmpty{
+                        userRequire.weight = newWeight
+                    }
+                    
+                    userRequire.nickName = userRequire.nickName
+                    
+                    self.presentationMode.wrappedValue.dismiss()
+                }){
+                    Text("확인")
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
                 
             }//Vstack
             Spacer()
