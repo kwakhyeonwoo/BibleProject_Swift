@@ -10,6 +10,8 @@ import SwiftUI
 struct InputFoodCalorie : View {
     @State private var food : String = ""
     @State private var calorie : String = ""
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     @Binding var nowCalorie : Int
     //현재 뷰 닫기 위해 설정
     @Environment(\.presentationMode) var presentationMode
@@ -43,6 +45,14 @@ struct InputFoodCalorie : View {
                         .disableAutocorrection(true)
                         .onAppear(){
                             UITextField.appearance().clearButtonMode = .whileEditing
+                        }
+                        .onChange(of: calorie) { cal in
+                            if !cal.allSatisfy({ $0.isNumber || $0 == "."
+                                }){
+                                    showAlert = true
+                                    alertMessage = "숫자만 입력해주세요"
+                                    calorie = cal.filter {$0.isNumber || $0 == "."}
+                                }
                         }
                     Spacer()
                 }

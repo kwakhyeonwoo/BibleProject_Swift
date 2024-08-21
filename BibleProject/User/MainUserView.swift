@@ -110,7 +110,7 @@ struct MainUserView: View {
                             }
                         }
                         
-                        NavigationLink(destination: UserSetting(), tag: 3, selection: $selectedTab){
+                        NavigationLink(destination: UserSetting(userRequire: user), tag: 3, selection: $selectedTab){
                             Button(action: {
                                 selectedTab = 3
                             }){
@@ -122,7 +122,6 @@ struct MainUserView: View {
                         }
                     }
                     .font(.headline)
-                    .padding(.bottom, 100)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .alert(isPresented: $showAlert) {
