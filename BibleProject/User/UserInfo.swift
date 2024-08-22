@@ -8,6 +8,27 @@
 import SwiftUI
 import Foundation
 
+struct KeyBoardDismissViewUserInfo : UIViewRepresentable{
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView()
+        let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(context.coordinator.dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIView, context: Context) {}
+    
+    func makeCoordinator() -> Coordinator {
+        return Coordinator()
+    }
+    
+    class Coordinator{
+        @objc func dismissKeyboard(){
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
+    }
+}
+
 struct UserInfo: View {
     
     @ObservedObject var requireUser: StateUserModel
@@ -27,7 +48,7 @@ struct UserInfo: View {
             VStack(alignment: .center) {
                 // 원 이미지와 원형 버튼들
                 ZStack(alignment: .center) {
-                    Image("Paris5")
+                    Image("Image0")
                         .resizable()
                         .frame(width: 150, height: 150)
                         .clipShape(Circle())
@@ -181,6 +202,8 @@ struct UserInfo: View {
                 Alert(title: Text("잘못된 입력"), message: Text(alertMessage),
                       dismissButton: .default(Text("확인")))
             }
+            KeyBoardDismissViewUserInfo()
+                    .edgesIgnoringSafeArea(.all)
         }
     }
 }
