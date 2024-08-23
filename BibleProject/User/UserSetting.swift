@@ -29,6 +29,7 @@ struct KeyBoardDismissViewUserSetting : UIViewRepresentable{
 }
 struct UserSetting : View {
     @ObservedObject var userRequire : StateUserModel
+    @ObservedObject var basicColor : ImageBasicColor
     
     @State private var newWeight : String = ""
     @State private var newHeight : String = ""
@@ -40,10 +41,12 @@ struct UserSetting : View {
                 VStack(alignment: .center, spacing: 180){
                     HStack(alignment: .center){
                         
-                        Image("Paris5")
+                        Image("Image0")
                             .resizable()
+                            .scaledToFit()
                             .frame(width: 150, height: 150)
                             .clipShape(Circle())
+                            .colorMultiply(basicColor.selectedColor)
                         
                         Spacer()
                         
@@ -107,5 +110,5 @@ struct UserSetting : View {
 }
 
 #Preview {
-    UserSetting(userRequire: StateUserModel())
+    UserSetting(userRequire: StateUserModel(), basicColor: ImageBasicColor())
 }

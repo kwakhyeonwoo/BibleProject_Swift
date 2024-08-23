@@ -83,6 +83,7 @@ struct MainUserView: View {
                     HStack {
                         Text("오늘의 칼로리: ")
                         TextField("오늘의 칼로리 입력", text: $todayCalorie)
+                            .submitLabel(.done)
                             .keyboardType(.decimalPad)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .onChange(of: todayCalorie) { calorie in
@@ -133,7 +134,7 @@ struct MainUserView: View {
                         }
                     }
                     
-                    NavigationLink(destination: UserSetting(userRequire: user), tag: 3, selection: $selectedTab) {
+                    NavigationLink(destination: UserSetting(userRequire: user, basicColor: basicColor), tag: 3, selection: $selectedTab) {
                         Button(action: {
                             selectedTab = 3
                         }) {
@@ -145,7 +146,8 @@ struct MainUserView: View {
                     }
                 }
                 .font(.headline)
-                .padding(.bottom, 20) // TabView가 사라지지 않도록 추가적인 공간 확보
+                // TabView가 사라지지 않도록 추가적인 공간 확보
+                .padding(.bottom, 20)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .alert(isPresented: $showAlert) {

@@ -166,6 +166,7 @@ struct UserInfo: View {
                     Text("나이: ")
                         .frame(width: 80, alignment: .leading)
                     TextField("나이", text: $requireUser.age)
+                        .submitLabel(.done)
                         .keyboardType(.numberPad)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .onChange(of: requireUser.age) { ageValue in
