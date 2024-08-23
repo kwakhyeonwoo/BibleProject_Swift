@@ -177,11 +177,11 @@ struct UserInfo: View {
                             }
                         }
                 }
-                
+                 
                 NavigationLink(
                     destination: MainUserView(user: requireUser, basicColor: basicColor),  // 같은 인스턴스 전달
                     isActive: $navigateToMainUserView
-                ) { 
+                ) {
                     Text("생성")
                         .frame(width: 50, height: 30)
                         .padding()
