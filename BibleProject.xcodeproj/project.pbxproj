@@ -22,6 +22,7 @@
 		67341E8B2C60726800808340 /* BibleProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67341E8A2C60726800808340 /* BibleProjectUITests.swift */; };
 		67341E8D2C60726800808340 /* BibleProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67341E8C2C60726800808340 /* BibleProjectUITestsLaunchTests.swift */; };
 		67341E9A2C60734100808340 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67341E992C60734100808340 /* UserInfo.swift */; };
+		67842D9D2C7858C600C2DC40 /* ImageBasicColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67842D9C2C7858C600C2DC40 /* ImageBasicColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		67341E8A2C60726800808340 /* BibleProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleProjectUITests.swift; sourceTree = "<group>"; };
 		67341E8C2C60726800808340 /* BibleProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		67341E992C60734100808340 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		67842D9C2C7858C600C2DC40 /* ImageBasicColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBasicColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				671EAAA52C672A98000E07E9 /* StateUserModel.swift */,
+				67842D9C2C7858C600C2DC40 /* ImageBasicColor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				671EAAAE2C67449B000E07E9 /* SecondPageView.swift in Sources */,
 				67341E722C60726600808340 /* ContentView.swift in Sources */,
 				671EAAB02C6CD389000E07E9 /* CalendarView.swift in Sources */,
+				67842D9D2C7858C600C2DC40 /* ImageBasicColor.swift in Sources */,
 				67341E9A2C60734100808340 /* UserInfo.swift in Sources */,
 				671EAAA92C674213000E07E9 /* InputFoodCalorie.swift in Sources */,
 				67341E702C60726600808340 /* BibleProjectApp.swift in Sources */,

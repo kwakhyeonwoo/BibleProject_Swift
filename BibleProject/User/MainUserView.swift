@@ -30,6 +30,8 @@ struct KeyBoardDismissViewMainUserView : UIViewRepresentable{
 }
 struct MainUserView: View {
     @ObservedObject var user: StateUserModel
+    @ObservedObject var basicColor : ImageBasicColor
+    
     @State private var todayCalorie: String = ""
     @State private var showAlert = false
     @State private var alertMessage = ""
@@ -55,22 +57,25 @@ struct MainUserView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 200, height: 200)
-                                .background(Color.yellow)
+                                .colorMultiply(basicColor.selectedColor)
                         } else if calroiePercentage <= 70 {
                             Image("Image1")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 200, height: 200)
+                                .colorMultiply(basicColor.selectedColor)
                         } else if calroiePercentage <= 100 {
                             Image("Image2")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 200, height: 200)
+                                .colorMultiply(basicColor.selectedColor)
                         } else {
                             Image("Image3")
-                                .resizable()  
+                                .resizable()
                                 .scaledToFit()
                                 .frame(width: 200, height: 200)
+                                .colorMultiply(basicColor.selectedColor)
                         }
                     }
                     Text("\(user.nickName)님 반갑습니다")
@@ -117,7 +122,7 @@ struct MainUserView: View {
                         }
                     }
                     
-                    NavigationLink(destination: UserInfo(requireUser: StateUserModel()), tag: 2, selection: $selectedTab) {
+                    NavigationLink(destination: UserInfo(requireUser: StateUserModel(), basicColor: ImageBasicColor()), tag: 2, selection: $selectedTab) {
                         Button(action: {
                             selectedTab = 2
                         }) {
@@ -179,5 +184,5 @@ extension View{
 }
 
 #Preview {
-    MainUserView(user: StateUserModel())
+    MainUserView(user: StateUserModel(), basicColor: ImageBasicColor())
 }

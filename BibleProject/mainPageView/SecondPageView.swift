@@ -34,7 +34,7 @@ struct SecondPageView: View {
                 HStack(spacing: 20) {
                     // 로그인 버튼
                     NavigationLink(
-                        destination: UserInfo(requireUser: StateUserModel()),
+                        destination: UserInfo(requireUser: StateUserModel(), basicColor: ImageBasicColor()),
                         isActive: $moveUserInfo
                     ) {
                         Button(action: {
