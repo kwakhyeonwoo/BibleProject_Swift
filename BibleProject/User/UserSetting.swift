@@ -41,7 +41,7 @@ struct UserSetting : View {
                 VStack(alignment: .center, spacing: 180){
                     HStack(alignment: .center){
                         
-                        Image("Image0")
+                        Image(basicColor.selectedImage)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 150, height: 150)

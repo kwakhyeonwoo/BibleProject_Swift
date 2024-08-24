@@ -58,24 +58,36 @@ struct MainUserView: View {
                                 .scaledToFit()
                                 .frame(width: 200, height: 200)
                                 .colorMultiply(basicColor.selectedColor)
+                                .onAppear{
+                                    basicColor.selectedImage = "Image0"
+                                }
                         } else if calroiePercentage <= 70 {
                             Image("Image1")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 200, height: 200)
                                 .colorMultiply(basicColor.selectedColor)
+                                .onAppear{
+                                    basicColor.selectedImage = "Image1"
+                                }
                         } else if calroiePercentage <= 100 {
                             Image("Image2")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 200, height: 200)
                                 .colorMultiply(basicColor.selectedColor)
+                                .onAppear{
+                                    basicColor.selectedImage = "Image2"
+                                }
                         } else {
                             Image("Image3")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 200, height: 200)
                                 .colorMultiply(basicColor.selectedColor)
+                                .onAppear{
+                                    basicColor.selectedImage = "Image3"
+                                }
                         }
                     }
                     Text("\(user.nickName)님 반갑습니다")

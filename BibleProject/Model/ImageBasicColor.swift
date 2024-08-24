@@ -10,4 +10,5 @@ import SwiftUI
 //UserInfo, MainUserView, UserSetting에서 사용하기 위해 @Published사용
 class ImageBasicColor : ObservableObject {
     @Published var selectedColor : Color = .white
+    @Published var selectedImage : String = "Image0"
 }

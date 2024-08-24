@@ -105,6 +105,7 @@ struct UserInfo: View {
                             UITextField.appearance().clearButtonMode = .whileEditing
                         }
                 }
+                .submitLabel(.done)
                 
                 HStack {
                     Text("성별: ")
@@ -136,7 +137,7 @@ struct UserInfo: View {
                     Text("키: ")
                         .frame(width: 80, alignment: .leading)
                     TextField("키", text: $requireUser.height)
-                        .keyboardType(.decimalPad)
+                        .keyboardType(.numberPad)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .onChange(of: requireUser.height) { heightValue in
                             if !heightValue.allSatisfy({ $0.isNumber || $0 == "." }) {
@@ -146,6 +147,7 @@ struct UserInfo: View {
                             }
                         }
                 }
+                .submitLabel(.done)
                 
                 HStack {
                     Text("몸무게: ")
@@ -161,6 +163,7 @@ struct UserInfo: View {
                             }
                         }
                 }
+                .submitLabel(.done)
                 
                 HStack {
                     Text("나이: ")
@@ -177,9 +180,10 @@ struct UserInfo: View {
                             }
                         }
                 }
+                .submitLabel(.done)
                  
                 NavigationLink(
-                    destination: MainUserView(user: requireUser, basicColor: basicColor),  // 같은 인스턴스 전달
+                    destination: MainUserView(user: requireUser, basicColor: basicColor),  
                     isActive: $navigateToMainUserView
                 ) {
                     Text("생성")

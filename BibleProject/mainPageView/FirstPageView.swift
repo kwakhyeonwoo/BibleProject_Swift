@@ -19,10 +19,10 @@ struct FirstPageView: View {
             } else {
                 VStack {
                     
-                    Image(systemName: "app.fill")
+                    Image("Image0")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 100, height: 100)
+                        .frame(width: 200, height: 200)
                         .padding(.top, 5)
 
                     // 앱 이름 텍스트
