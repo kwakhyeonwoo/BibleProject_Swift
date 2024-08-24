@@ -40,10 +40,11 @@ struct UserInfo: View {
     @State private var selectedColor: Color = .white
     @State private var navigateToMainUserView = false
     let circleSize: CGFloat = 30
-    let colors: [Color] = [.black, .blue, .red, .yellow]
+    let colors: [Color] = [.purple, .blue, .red, .yellow]
     
     var body: some View {
         NavigationStack {
+            // MARK: - 원형 ColorPicker
             VStack(alignment: .center) {
                 // 원 이미지와 원형 버튼들
                 ZStack(alignment: .center) {
@@ -91,7 +92,7 @@ struct UserInfo: View {
                 .padding(.bottom, -50)
                 .offset(y: -30)
                 
-                // User Details
+                // MARK: 유저 정보 입력
                 HStack {
                     Text("닉네임: ")
                         .frame(width: 80, alignment: .leading)
@@ -181,6 +182,7 @@ struct UserInfo: View {
                 }
                 .submitLabel(.done)
                  
+                // MARK: 생성 버튼 
                 NavigationLink(
                     destination: MainUserView(user: requireUser, basicColor: basicColor),
                     isActive: $navigateToMainUserView

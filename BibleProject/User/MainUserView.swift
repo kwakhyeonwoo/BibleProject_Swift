@@ -51,6 +51,7 @@ struct MainUserView: View {
                     let calroieIntake = Double(nowCalorie)
                     let calroiePercentage = (calroieIntake / calroieGoal) * 100
                     
+                    //MARK: 이미지 클릭시 칼로리 기입
                     NavigationLink(destination: InputFoodCalorie(nowCalorie: $nowCalorie)) {
                         if calroiePercentage == 0 {
                             Image("Image0")
@@ -92,6 +93,7 @@ struct MainUserView: View {
                     }
                     Text("\(user.nickName)님 반갑습니다")
                     
+                    //MARK: 오늘의 칼로리
                     HStack {
                         Text("오늘의 칼로리: ")
                         TextField("오늘의 칼로리 입력", text: $todayCalorie)
@@ -107,6 +109,7 @@ struct MainUserView: View {
                             }
                     }
                     
+                    //MARK: 현재 칼로리 보여주기
                     HStack {
                         Text("현재 칼로리: ")
                         Text("\(nowCalorie)")
@@ -123,6 +126,7 @@ struct MainUserView: View {
                 
                 Spacer()
                 
+                //MARK: TabView - 캘린더
                 HStack(spacing: 100) {
                     NavigationLink(destination: CalendarView(), tag: 1, selection: $selectedTab) {
                         Button(action: {
@@ -135,6 +139,7 @@ struct MainUserView: View {
                         }
                     }
                     
+                    //MARK: TabView - 홈 화면
                     NavigationLink(destination: UserInfo(requireUser: StateUserModel(), basicColor: ImageBasicColor()), tag: 2, selection: $selectedTab) {
                         Button(action: {
                             selectedTab = 2
@@ -146,6 +151,7 @@ struct MainUserView: View {
                         }
                     }
                     
+                    //MARK: TabView - 유저 정보
                     NavigationLink(destination: UserSetting(userRequire: user, basicColor: basicColor), tag: 3, selection: $selectedTab) {
                         Button(action: {
                             selectedTab = 3
@@ -171,6 +177,7 @@ struct MainUserView: View {
         }
     }
     
+    //MARK: - 권장 칼로리
     func SuggestCal() {
         let heightValue = Double(user.height) ?? 0
         var recommendedCalories: String

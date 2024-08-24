@@ -20,14 +20,27 @@ struct SecondPageView: View {
                 
                 VStack(spacing: 20) {
                     TextField("ID", text: $id)
+                        .keyboardType(.webSearch)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.horizontal)
+                        .textInputAutocapitalization(.never)
+                        .disableAutocorrection(true)
                         .frame(maxWidth: .infinity)
+                        .submitLabel(.done)
+                        .onAppear{
+                            UITextField.appearance().clearButtonMode = .whileEditing
+                        }
 
                     SecureField("Password", text: $password)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.horizontal)
+                        .textInputAutocapitalization(.never)
+                        .disableAutocorrection(true)
                         .frame(maxWidth: .infinity)
+                        .submitLabel(.done)
+                        .onAppear{
+                            UITextField.appearance().clearButtonMode = .whileEditing
+                        }
                 }
                 .padding(.horizontal)
 
