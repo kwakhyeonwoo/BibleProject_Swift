@@ -39,6 +39,7 @@ struct InputFoodCalorie : View {
                     Text("칼로리: ")
                         .frame(width: 80, alignment: .leading)
                     TextField("칼로리", text: $calorie)
+                        .keyboardType(.decimalPad)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.trailing)
                         .textInputAutocapitalization(.never)

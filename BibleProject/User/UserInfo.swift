@@ -45,7 +45,6 @@ struct UserInfo: View {
     var body: some View {
         NavigationStack {
             VStack(alignment: .center) {
-                Spacer()
                 // 원 이미지와 원형 버튼들
                 ZStack(alignment: .center) {
                     Image("Image0")
@@ -89,8 +88,8 @@ struct UserInfo: View {
                         )
                         .frame(width: 300, height: 300)
                 }
-                .padding(.bottom, 30)
-                .offset(y: 50)
+                .padding(.bottom, -50)
+                .offset(y: -30)
                 
                 // User Details
                 HStack {
@@ -137,7 +136,7 @@ struct UserInfo: View {
                     Text("키: ")
                         .frame(width: 80, alignment: .leading)
                     TextField("키", text: $requireUser.height)
-                        .keyboardType(.numberPad)
+                        .keyboardType(.decimalPad)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .onChange(of: requireUser.height) { heightValue in
                             if !heightValue.allSatisfy({ $0.isNumber || $0 == "." }) {
@@ -183,7 +182,7 @@ struct UserInfo: View {
                 .submitLabel(.done)
                  
                 NavigationLink(
-                    destination: MainUserView(user: requireUser, basicColor: basicColor),  
+                    destination: MainUserView(user: requireUser, basicColor: basicColor),
                     isActive: $navigateToMainUserView
                 ) {
                     Text("생성")
@@ -202,9 +201,14 @@ struct UserInfo: View {
                 Alert(title: Text("잘못된 입력"), message: Text(alertMessage),
                       dismissButton: .default(Text("확인")))
             }
-            KeyBoardDismissViewUserInfo()
-                .edgesIgnoringSafeArea(.all)
+            .background(KeyBoardDismissViewUserInfo().edgesIgnoringSafeArea(.all))
         }
+    }
+}
+
+extension View {
+    func hideKeyboardUserInfo(){
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 

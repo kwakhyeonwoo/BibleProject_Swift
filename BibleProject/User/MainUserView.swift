@@ -192,7 +192,7 @@ struct MainUserView: View {
 
 //외부 공간 클릭시 키보드 내려감
 extension View{
-    func hideKeyboard(){
+    func hideKeyboardMainUserView(){
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
