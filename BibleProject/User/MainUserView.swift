@@ -33,6 +33,7 @@ struct MainUserView: View {
     @ObservedObject var basicColor : ImageBasicColor
     
     @State private var todayCalorie: String = ""
+    @State private var delCalorie: String = ""
     @State private var showAlert = false
     @State private var alertMessage = ""
     @State private var nowCalorie: Int = 0
@@ -109,6 +110,14 @@ struct MainUserView: View {
                             }
                     }
                     
+//                    HStack{
+//                        Text("소모 칼로리: ")
+//                        TextField("소모 칼로리 입력", text: $delCalorie)
+//                            .submitLabel(.done)
+//                            .keyboardType(.decimalPad)
+//                            .textFieldStyle(RoundedBorderTextFieldStyle())
+//                    }
+                    
                     //MARK: 현재 칼로리 보여주기
                     HStack {
                         Text("현재 칼로리: ")
@@ -180,14 +189,19 @@ struct MainUserView: View {
     //MARK: - 권장 칼로리
     func SuggestCal() {
         let heightValue = Double(user.height) ?? 0
+        let weightValue = Double(user.weight) ?? 0
+        let ageValue = Double(user.age) ?? 0
         var recommendedCalories: String
         
         if user.gender == true {
             // 남자 권장 칼로리
-            recommendedCalories = String(format: "%.0f", (heightValue - 100) * 0.9 * 33)
+            let manBaseCal = 10 * heightValue + 6.25 * heightValue - 5 * ageValue + 5
+            recommendedCalories = String(format: "%.0f", manBaseCal * 1.55)
+            
         } else if user.gender == false {
             // 여자 권장 칼로리
-            recommendedCalories = String(format: "%.0f", (heightValue - 110) * 0.9 * 33)
+            let womanBasceCal = 10 * weightValue + 6.25 * heightValue - 5 * ageValue - 161
+            recommendedCalories = String(format: "%.0f", womanBasceCal * 1.55)
         } else {
             recommendedCalories = "성별이 설정되지 않았습니다."
         }
@@ -196,6 +210,10 @@ struct MainUserView: View {
         showAlert = true
     }
 }
+//BMR=10×체중(kg)+6.25×신장(cm)−5×나이(세)+5
+//BMR=10×체중(kg)+6.25×신장(cm)−5×나이(세)−161
+// 160cm, 50kg, 22
+// 500 + 1000 - 110 -
 
 //외부 공간 클릭시 키보드 내려감
 extension View{

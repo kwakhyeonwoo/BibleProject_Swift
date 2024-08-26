@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct CalendarView : View{
     
@@ -18,6 +19,10 @@ struct CalendarView : View{
         )
         .datePickerStyle(.graphical)
     }
+}
+
+extension CalendarView {
+    
 }
 
 #Preview {
