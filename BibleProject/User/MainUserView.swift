@@ -95,30 +95,30 @@ struct MainUserView: View {
                     Text("\(user.nickName)님 반갑습니다")
                     
                     //MARK: 오늘의 칼로리
-                    HStack {
-                        Text("오늘의 칼로리: ")
-                        TextField("오늘의 칼로리 입력", text: $todayCalorie)
-                            .submitLabel(.done)
-                            .keyboardType(.decimalPad)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .onChange(of: todayCalorie) { calorie in
-                                if !calorie.allSatisfy({ $0.isNumber || $0 == "." }) {
-                                    showAlert = true
-                                    alertMessage = "숫자만 입력해주세요"
-                                    todayCalorie = calorie.filter { $0.isNumber || $0 == "." }
-                                }
-                            }
+                    VStack(spacing: 16) {
+                        HStack {
+                            Text("오늘의 칼로리:")
+                                .frame(width: 100, alignment: .leading) // 고정 너비 설정
+                            TextField("오늘의 칼로리 입력", text: $todayCalorie)
+                                .keyboardType(.decimalPad)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .frame(maxWidth: .infinity)
+                        }
+                        .padding(.horizontal)
+                        
+//                        HStack {
+//                            Text("소모 칼로리:")
+//                                .frame(width: 100, alignment: .leading) // 고정 너비 설정
+//                            TextField("소모 칼로리 입력", text: $delCalorie)
+//                                .submitLabel(.done)
+//                                .keyboardType(.decimalPad)
+//                                .textFieldStyle(RoundedBorderTextFieldStyle())
+//                                .frame(maxWidth: .infinity)
+//                        }
+//                        .padding(.horizontal)
                     }
                     
-//                    HStack{
-//                        Text("소모 칼로리: ")
-//                        TextField("소모 칼로리 입력", text: $delCalorie)
-//                            .submitLabel(.done)
-//                            .keyboardType(.decimalPad)
-//                            .textFieldStyle(RoundedBorderTextFieldStyle())
-//                    }
-                    
-                    //MARK: 현재 칼로리 보여주기
+                    // MARK: 현재 칼로리 보여주기
                     HStack {
                         Text("현재 칼로리: ")
                         Text("\(nowCalorie)")
@@ -129,7 +129,7 @@ struct MainUserView: View {
                     }) {
                         Text("나의 권장 칼로리 확인하기")
                     }
-                    .padding()
+                    
                 }
                 .padding()
                 
@@ -195,7 +195,7 @@ struct MainUserView: View {
         
         if user.gender == true {
             // 남자 권장 칼로리
-            let manBaseCal = 10 * heightValue + 6.25 * heightValue - 5 * ageValue + 5
+            let manBaseCal = 10 * weightValue + 6.25 * heightValue - 5 * ageValue + 5
             recommendedCalories = String(format: "%.0f", manBaseCal * 1.55)
             
         } else if user.gender == false {
@@ -212,8 +212,6 @@ struct MainUserView: View {
 }
 //BMR=10×체중(kg)+6.25×신장(cm)−5×나이(세)+5
 //BMR=10×체중(kg)+6.25×신장(cm)−5×나이(세)−161
-// 160cm, 50kg, 22
-// 500 + 1000 - 110 -
 
 //외부 공간 클릭시 키보드 내려감
 extension View{

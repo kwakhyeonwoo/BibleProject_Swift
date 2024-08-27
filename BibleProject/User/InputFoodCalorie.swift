@@ -12,14 +12,40 @@ struct InputFoodCalorie : View {
     @State private var calorie : String = ""
     @State private var showAlert = false
     @State private var alertMessage = ""
+    @State private var showFoodInput : Bool = false
+    @State private var delFoodInput : Bool = false
     @Binding var nowCalorie : Int
     //현재 뷰 닫기 위해 설정
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View{
-        VStack{
+        HStack(spacing: 30){
+            Button(action: {
+                self.showFoodInput = true
+                self.delFoodInput = false
+            }){
+                Text("음식 추가")
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
             
-            Group{
+            
+           Button(action: {
+               self.showFoodInput = false
+               self.delFoodInput = true
+           }){
+               Text("소모 칼로리")
+                   .padding()
+                   .background(Color.blue)
+                   .foregroundColor(.white)
+                   .cornerRadius(10)
+           }
+        }
+        
+        if showFoodInput {
+            VStack{
                 HStack{
                     Spacer()
                     Text("음식: ")
@@ -47,14 +73,6 @@ struct InputFoodCalorie : View {
                         .onAppear(){
                             UITextField.appearance().clearButtonMode = .whileEditing
                         }
-                        .onChange(of: calorie) { cal in
-                            if !cal.allSatisfy({ $0.isNumber || $0 == "."
-                                }){
-                                    showAlert = true
-                                    alertMessage = "숫자만 입력해주세요"
-                                    calorie = cal.filter {$0.isNumber || $0 == "."}
-                                }
-                        }
                     Spacer()
                 }
                 
@@ -73,11 +91,21 @@ struct InputFoodCalorie : View {
                         .cornerRadius(10)
                 }
             }
-        }
-        .padding()
+            .padding()
+        } else if delFoodInput {
+            VStack{
+                HStack{
+                    Spacer()
+                    Text("운동: ")
+                        .frame(width: 80, alignment: .leading)
+//                    TextField("운동 종류", text: $)
+                }
+            }
+        }// else if 
+        
     }
 }
 
 //#Preview {
-//    InputFoodCalorie()
+//    InputFoodCalorie(nowCalorie: $nowCalorie)
 //}
