@@ -9,6 +9,7 @@ import SwiftUI
 
 struct InputFoodCalorie : View {
     @State private var food : String = ""
+    @State private var gym : String = ""
     @State private var calorie : String = ""
     @State private var showAlert = false
     @State private var alertMessage = ""
@@ -98,7 +99,43 @@ struct InputFoodCalorie : View {
                     Spacer()
                     Text("운동: ")
                         .frame(width: 80, alignment: .leading)
-//                    TextField("운동 종류", text: $)
+                    TextField("운동 종류", text: $gym)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.trailing)
+                        .textInputAutocapitalization(.never)
+                        .disableAutocorrection(true)
+                        .onAppear(){
+                            UITextField.appearance().clearButtonMode = .whileEditing
+                        }
+                    Spacer()
+                }
+                
+                HStack{
+                    Spacer()
+                    Text("칼로리")
+                        .frame(width: 80, alignment: .leading)
+                    TextField("소모한 칼로리", text: $calorie)
+                        .keyboardType(.decimalPad)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.trailing)
+                        .textInputAutocapitalization(.never)
+                        .disableAutocorrection(true)
+                        .onAppear(){
+                            UITextField.appearance().clearButtonMode = .whileEditing
+                        }
+                    Spacer()
+                }
+                Button(action: {
+                    if let delCal = Int(calorie){
+                        nowCalorie -= delCal
+                    }
+                    self.presentationMode.wrappedValue.dismiss()
+                }){
+                    Text("추가")
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                 }
             }
         }// else if 

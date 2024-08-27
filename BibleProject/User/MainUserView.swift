@@ -54,7 +54,7 @@ struct MainUserView: View {
                     
                     //MARK: 이미지 클릭시 칼로리 기입
                     NavigationLink(destination: InputFoodCalorie(nowCalorie: $nowCalorie)) {
-                        if calroiePercentage == 0 {
+                        if calroiePercentage <= 0 {
                             Image("Image0")
                                 .resizable()
                                 .scaledToFit()
