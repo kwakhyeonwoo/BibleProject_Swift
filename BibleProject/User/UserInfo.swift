@@ -30,10 +30,10 @@ struct KeyBoardDismissViewUserInfo : UIViewRepresentable{
 }
 
 struct UserInfo: View {
-    
+
     @ObservedObject var requireUser: StateUserModel
     @ObservedObject var basicColor: ImageBasicColor
-    
+
     @State private var showAlert = false
     @State private var alertMessage = ""
     
@@ -41,26 +41,23 @@ struct UserInfo: View {
     @State private var navigateToMainUserView = false
     let circleSize: CGFloat = 30
     let colors: [Color] = [.purple, .blue, .red, .yellow]
-    
+
     var body: some View {
         NavigationStack {
-            // MARK: - 원형 ColorPicker
             VStack(alignment: .center) {
-                // 원 이미지와 원형 버튼들
                 ZStack(alignment: .center) {
                     Image("Image0")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 150, height: 150)
                         .clipShape(Circle())
-                        //이미지 자체의 색상 변경
                         .colorMultiply(basicColor.selectedColor)
                         .overlay(
                             GeometryReader { geometry in
                                 let centerX = geometry.size.width / 2
                                 let centerY = geometry.size.height / 2
                                 let radius = geometry.size.width / 2 + circleSize
-                                
+
                                 ForEach(0..<colors.count, id: \.self) { colorIndex in
                                     let angle = Angle(degrees: Double(colorIndex) / Double(colors.count) * -180)
                                     let xOffset = cos(angle.radians) * radius
@@ -74,12 +71,12 @@ struct UserInfo: View {
                                     }
                                     .position(x: centerX + xOffset, y: centerY + yOffset)
                                 }
-                                
+
                                 let colorPickerOffset = radius + 10
                                 let angle = Angle(degrees: Double(colors.count) / Double(colors.count) * -180)
                                 let xOffset = cos(angle.radians) * colorPickerOffset
                                 let yOffset = sin(angle.radians) * colorPickerOffset
-                                
+
                                 VStack {
                                     ColorPicker("색상 선택", selection: $basicColor.selectedColor)
                                         .labelsHidden()
@@ -91,8 +88,7 @@ struct UserInfo: View {
                 }
                 .padding(.bottom, -50)
                 .offset(y: -30)
-                
-                // MARK: 유저 정보 입력
+
                 HStack {
                     Text("닉네임: ")
                         .frame(width: 80, alignment: .leading)
@@ -106,7 +102,7 @@ struct UserInfo: View {
                         }
                 }
                 .submitLabel(.done)
-                
+
                 HStack {
                     Text("성별: ")
                         .frame(width: 80, alignment: .leading)
@@ -132,7 +128,7 @@ struct UserInfo: View {
                             .cornerRadius(10)
                     })
                 }
-                
+
                 HStack {
                     Text("키: ")
                         .frame(width: 80, alignment: .leading)
@@ -148,7 +144,7 @@ struct UserInfo: View {
                         }
                 }
                 .submitLabel(.done)
-                
+
                 HStack {
                     Text("몸무게: ")
                         .frame(width: 80, alignment: .leading)
@@ -164,7 +160,7 @@ struct UserInfo: View {
                         }
                 }
                 .submitLabel(.done)
-                
+
                 HStack {
                     Text("나이: ")
                         .frame(width: 80, alignment: .leading)
@@ -182,11 +178,16 @@ struct UserInfo: View {
                 }
                 .submitLabel(.done)
                  
-                // MARK: 생성 버튼 
-                NavigationLink(
-                    destination: MainUserView(user: requireUser, basicColor: basicColor),
-                    isActive: $navigateToMainUserView
-                ) {
+                // MARK: 생성 버튼
+                Button(action: {
+                    if requireUser.nickName.isEmpty || requireUser.height.isEmpty || requireUser.weight.isEmpty || requireUser.age.isEmpty {
+                        showAlert = true
+                        alertMessage = "모든 필드를 입력해주세요!"
+                    } else {
+                        // 네비게이션을 실행하려면 `navigateToMainUserView`를 `true`로 설정
+                        navigateToMainUserView = true
+                    }
+                }) {
                     Text("생성")
                         .frame(width: 50, height: 30)
                         .padding()
@@ -194,19 +195,28 @@ struct UserInfo: View {
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
-                .simultaneousGesture(TapGesture().onEnded {
-                    navigateToMainUserView = true
-                })
+                
+                // 네비게이션 링크를 숨기고 버튼 클릭 시 네비게이션을 수행
+                NavigationLink(
+                    destination: MainUserView(user: requireUser, basicColor: basicColor),
+                    isActive: $navigateToMainUserView
+                ) {
+                    EmptyView()
+                }
             }
             .padding()
             .alert(isPresented: $showAlert) {
-                Alert(title: Text("잘못된 입력"), message: Text(alertMessage),
-                      dismissButton: .default(Text("확인")))
+                Alert(
+                    title: Text("잘못된 입력"),
+                    message: Text(alertMessage),
+                    dismissButton: .default(Text("확인"))
+                )
             }
             .background(KeyBoardDismissViewUserInfo().edgesIgnoringSafeArea(.all))
         }
     }
 }
+
 
 extension View {
     func hideKeyboardUserInfo(){

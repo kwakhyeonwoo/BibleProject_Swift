@@ -22,8 +22,10 @@ struct InputFoodCalorie : View {
     var body: some View{
         HStack(spacing: 30){
             Button(action: {
-                self.showFoodInput = true
-                self.delFoodInput = false
+                withAnimation(nil){
+                    self.showFoodInput = true
+                    self.delFoodInput = false
+                }
             }){
                 Text("음식 추가")
                     .padding()
@@ -34,8 +36,10 @@ struct InputFoodCalorie : View {
             
             
            Button(action: {
-               self.showFoodInput = false
-               self.delFoodInput = true
+               withAnimation(nil){
+                   self.showFoodInput = false
+                   self.delFoodInput = true
+               }
            }){
                Text("소모 칼로리")
                    .padding()
@@ -65,7 +69,7 @@ struct InputFoodCalorie : View {
                     Spacer()
                     Text("칼로리: ")
                         .frame(width: 80, alignment: .leading)
-                    TextField("칼로리", text: $calorie)
+                    TextField("섭취한 칼로리", text: $calorie)
                         .keyboardType(.decimalPad)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.trailing)
@@ -125,6 +129,7 @@ struct InputFoodCalorie : View {
                         }
                     Spacer()
                 }
+                
                 Button(action: {
                     if let delCal = Int(calorie){
                         nowCalorie -= delCal
@@ -138,7 +143,8 @@ struct InputFoodCalorie : View {
                         .cornerRadius(10)
                 }
             }
-        }// else if 
+            .padding()
+        }// else if
         
     }
 }
