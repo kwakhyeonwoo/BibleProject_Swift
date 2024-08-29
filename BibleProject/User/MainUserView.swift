@@ -35,7 +35,9 @@ struct MainUserView: View {
     @State private var todayCalorie: String = ""
     @State private var delCalorie: String = ""
     @State private var showAlert = false
+    @State private var userAlert = false
     @State private var alertMessage = ""
+    @State private var userMessage = ""
     @State private var nowCalorie: Int = 0
     @State private var selectedTab: Int? = nil
     
@@ -54,7 +56,16 @@ struct MainUserView: View {
                     
                     //MARK: 이미지 클릭시 칼로리 기입
                     NavigationLink(destination: InputFoodCalorie(nowCalorie: $nowCalorie)) {
-                        if calroiePercentage <= 0 {
+                        if calroiePercentage < 0 {
+                            Image("Image4")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 200, height: 200)
+                                .colorMultiply(basicColor.selectedColor)
+                                .onAppear{
+                                    basicColor.selectedImage = "Image4"
+                                }
+                        }else if calroiePercentage == 0 {
                             Image("Image0")
                                 .resizable()
                                 .scaledToFit()
@@ -123,11 +134,17 @@ struct MainUserView: View {
                         Text("현재 칼로리: ")
                         Text("\(nowCalorie)")
                     }
-                    
+                    // MARK: 권장 칼로리 Alert
                     Button(action: {
                         SuggestCal()
                     }) {
                         Text("나의 권장 칼로리 확인하기")
+                    }
+                    // MARK: 나의 정보 Alert
+                    Button(action: {
+                        
+                    }){
+                        Text("나의 정보 확인하기")
                     }
                     
                 }
@@ -206,12 +223,20 @@ struct MainUserView: View {
             recommendedCalories = "성별이 설정되지 않았습니다."
         }
         
-        alertMessage = "권장 칼로리는 \(recommendedCalories)입니다."
+        alertMessage = " 권장 칼로리는 \(recommendedCalories) 입니다."
         showAlert = true
+        userAlert = false
     }
-}
 //BMR=10×체중(kg)+6.25×신장(cm)−5×나이(세)+5
 //BMR=10×체중(kg)+6.25×신장(cm)−5×나이(세)−161
+    
+    //MARK: - 유저 정보
+    func UserInformation(){
+        userMessage = "\(user.nickName)의 정보는 "
+        
+    }
+}
+
 
 //외부 공간 클릭시 키보드 내려감
 extension View{
