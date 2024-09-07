@@ -58,64 +58,10 @@ struct UserSetting : View {
                     
                 }//VStack
                 
-                VStack{
-                    HStack{
-                        Text("닉네임 ")
-                            .padding()
-                            .frame(width: 80, alignment: .leading)
-                        TextField("변경할 닉네임", text: $userRequire.nickName)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .padding(.trailing)
-                            .textInputAutocapitalization(.never)
-                            .disableAutocorrection(true)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .submitLabel(.done)
-                    
-                    HStack{
-                        Text("키 ")
-                            .padding()
-                            .frame(width: 80, alignment: .leading)
-                        TextField("변경된 키", text: $userRequire.height)
-                            .padding(.trailing)
-                            .keyboardType(.decimalPad)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                    .submitLabel(.done)
-                    
-                    HStack{
-                        Text("몸무게")
-                            .padding()
-                            .frame(width: 80, alignment: .leading)
-                        TextField("변경된 몸무게", text: $userRequire.weight)
-                            .padding(.trailing)
-                            .keyboardType(.decimalPad)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                    .submitLabel(.done)
-                    
-                    HStack{
-                        Text("나이")
-                            .padding()
-                            .frame(width: 80, alignment: .leading)
-                        TextField("변경된 나이", text: $userRequire.age)
-                            .padding(.trailing)
-                            .keyboardType(.decimalPad)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                    .submitLabel(.done)
-                }
-                Spacer()
-                
-                Button{
-                    self.presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Text("확인")
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
+                //userTextField부분
+                fixUserinfo
+                //확인 버튼 부분
+                buttonClickEvent
                 
                 KeyBoardDismissViewUserSetting()
                     .edgesIgnoringSafeArea(.all)
@@ -130,7 +76,66 @@ struct UserSetting : View {
 extension UserSetting{
     private var fixUserinfo: some View {
         VStack{
-            
+            VStack{
+                HStack{
+                    Text("닉네임 ")
+                        .padding()
+                        .frame(width: 80, alignment: .leading)
+                    TextField("변경할 닉네임", text: $userRequire.nickName)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.trailing)
+                        .textInputAutocapitalization(.never)
+                        .disableAutocorrection(true)
+                }
+                .frame(maxWidth: .infinity)
+                .submitLabel(.done)
+                
+                HStack{
+                    Text("키 ")
+                        .padding()
+                        .frame(width: 80, alignment: .leading)
+                    TextField("변경된 키", text: $userRequire.height)
+                        .padding(.trailing)
+                        .keyboardType(.decimalPad)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                }
+                .submitLabel(.done)
+                
+                HStack{
+                    Text("몸무게")
+                        .padding()
+                        .frame(width: 80, alignment: .leading)
+                    TextField("변경된 몸무게", text: $userRequire.weight)
+                        .padding(.trailing)
+                        .keyboardType(.decimalPad)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                }
+                .submitLabel(.done)
+                
+                HStack{
+                    Text("나이")
+                        .padding()
+                        .frame(width: 80, alignment: .leading)
+                    TextField("변경된 나이", text: $userRequire.age)
+                        .padding(.trailing)
+                        .keyboardType(.decimalPad)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                }
+                .submitLabel(.done)
+            }
+            Spacer()
+        }
+    }
+    
+    private var buttonClickEvent : some View {
+        Button{
+            self.presentationMode.wrappedValue.dismiss()
+        } label: {
+            Text("확인")
+                .padding()
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(10)
         }
     }
 }
