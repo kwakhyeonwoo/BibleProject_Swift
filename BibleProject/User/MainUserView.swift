@@ -132,11 +132,10 @@ struct MainUserView: View {
                         Text("나의 권장 칼로리 확인하기")
                     }
                     
-                    // MARK: 나의 정보 Alert
+                    // MARK: 내 정보 Alert
                     Button(action: {
                         showAlert = true
-                        userMessage = "\(user.nickName)님의 정보는\n\n" +
-                                      "닉네임: \(user.nickName)\n" +
+                        userMessage = "\n닉네임: \(user.nickName)\n" +
                                       "성별: \(user.gender == true ? "남성" : "여성")\n" +
                                       "키: \(user.height) cm\n" +
                                       "몸무게: \(user.weight) kg\n" +
@@ -167,7 +166,7 @@ struct MainUserView: View {
                     // MARK: TabView - 홈 화면
                     NavigationLink(destination: UserInfo(requireUser: StateUserModel(), basicColor: ImageBasicColor()), tag: 2, selection: $selectedTab) {
                         Button(action: {
-                            selectedTab = 2
+//                            selectedTab = 2
                         }) {
                             VStack {
                                 Image(systemName: "house")
@@ -190,7 +189,7 @@ struct MainUserView: View {
                 }
                 .font(.headline)
                 // TabView가 사라지지 않도록 추가적인 공간 확보
-                .padding(.bottom, 20)
+                .padding(.bottom, 0)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .alert(isPresented: $showAlert) {

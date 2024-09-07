@@ -58,57 +58,79 @@ struct UserSetting : View {
                     
                 }//VStack
                 
-                VStack(spacing: 0){
-                    
+                VStack{
                     HStack{
-                        Text("키: ")
-                            .frame(width: 80, alignment: .leading)
-                        TextField("바뀐 키", text: $newHeight)
-                            .keyboardType(.decimalPad)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                        
-                    }//HStack
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    
-                    HStack{
-                        Text("몸무게: ")
-                            .frame(width: 80, alignment: .leading)
-                        TextField("바뀐 몸무게", text: $newWeight)
-                            .keyboardType(.decimalPad)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }//HStack
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    
-                    Button(action: {
-                        if !newHeight.isEmpty {
-                            userRequire.height = newHeight
-                        }
-                        
-                        if !newWeight.isEmpty{
-                            userRequire.weight = newWeight
-                        }
-                        
-                        self.presentationMode.wrappedValue.dismiss()
-                    }){
-                        Text("확인")
+                        Text("닉네임 ")
                             .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
+                            .frame(width: 80, alignment: .leading)
+                        TextField("변경할 닉네임", text: $userRequire.nickName)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.trailing)
+                            .textInputAutocapitalization(.never)
+                            .disableAutocorrection(true)
                     }
+                    .frame(maxWidth: .infinity)
+                    .submitLabel(.done)
                     
-                }//Vstack
+                    HStack{
+                        Text("키 ")
+                            .padding()
+                            .frame(width: 80, alignment: .leading)
+                        TextField("변경된 키", text: $userRequire.height)
+                            .padding(.trailing)
+                            .keyboardType(.decimalPad)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }
+                    .submitLabel(.done)
+                    
+                    HStack{
+                        Text("몸무게")
+                            .padding()
+                            .frame(width: 80, alignment: .leading)
+                        TextField("변경된 몸무게", text: $userRequire.weight)
+                            .padding(.trailing)
+                            .keyboardType(.decimalPad)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }
+                    .submitLabel(.done)
+                    
+                    HStack{
+                        Text("나이")
+                            .padding()
+                            .frame(width: 80, alignment: .leading)
+                        TextField("변경된 나이", text: $userRequire.age)
+                            .padding(.trailing)
+                            .keyboardType(.decimalPad)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }
+                    .submitLabel(.done)
+                }
                 Spacer()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                
+                Button{
+                    self.presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("확인")
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
                 
                 KeyBoardDismissViewUserSetting()
                     .edgesIgnoringSafeArea(.all)
             }
         }
-}
+    }
 
 #Preview {
     UserSetting(userRequire: StateUserModel(), basicColor: ImageBasicColor())
+}
+
+extension UserSetting{
+    private var fixUserinfo: some View {
+        VStack{
+            
+        }
+    }
 }
