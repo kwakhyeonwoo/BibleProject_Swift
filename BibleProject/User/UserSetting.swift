@@ -38,7 +38,8 @@ struct UserSetting : View {
     
     var body: some View {
             NavigationStack{
-                VStack(alignment: .center, spacing: 180){
+                
+                VStack(alignment: .center, spacing: 10){
                     HStack(alignment: .center){
                         
                         Image(basicColor.selectedImage)
@@ -57,14 +58,16 @@ struct UserSetting : View {
                     Spacer()
                     
                 }//VStack
+                .background(KeyBoardDismissViewUserSetting().edgesIgnoringSafeArea(.all))
                 
                 //userTextField부분
                 fixUserinfo
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+//                    .background(.yellow)
                 //확인 버튼 부분
                 buttonClickEvent
-                
-                KeyBoardDismissViewUserSetting()
-                    .edgesIgnoringSafeArea(.all)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                    .background(KeyBoardDismissViewUserSetting().edgesIgnoringSafeArea(.all))
             }
         }
     }
@@ -137,5 +140,12 @@ extension UserSetting{
                 .foregroundColor(.white)
                 .cornerRadius(10)
         }
+        
+    }
+}
+
+extension View {
+    func userSettingHideKeyboardMainUserView(){
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }

@@ -94,7 +94,6 @@ struct UserInfo: View {
                         .frame(width: 80, alignment: .leading)
                     TextField("닉네임", text: $requireUser.nickName)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.trailing)
                         .textInputAutocapitalization(.never)
                         .disableAutocorrection(true)
                         .onAppear {
@@ -135,13 +134,7 @@ struct UserInfo: View {
                     TextField("키", text: $requireUser.height)
                         .keyboardType(.decimalPad)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: requireUser.height) { heightValue in
-                            if !heightValue.allSatisfy({ $0.isNumber || $0 == "." }) {
-                                showAlert = true
-                                alertMessage = "숫자만 입력하세요!"
-                                requireUser.height = heightValue.filter { $0.isNumber || $0 == "." }
-                            }
-                        }
+                        
                 }
                 .submitLabel(.done)
 
@@ -151,13 +144,7 @@ struct UserInfo: View {
                     TextField("몸무게", text: $requireUser.weight)
                         .keyboardType(.decimalPad)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: requireUser.weight) { weightValue in
-                            if !weightValue.allSatisfy({ $0.isNumber || $0 == "." }) {
-                                showAlert = true
-                                alertMessage = "숫자만 입력하세요!"
-                                requireUser.weight = weightValue.filter { $0.isNumber || $0 == "." }
-                            }
-                        }
+                        
                 }
                 .submitLabel(.done)
 
@@ -168,13 +155,7 @@ struct UserInfo: View {
                         .submitLabel(.done)
                         .keyboardType(.numberPad)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: requireUser.age) { ageValue in
-                            if !ageValue.allSatisfy({ $0.isNumber || $0 == " " }) {
-                                showAlert = true
-                                alertMessage = "숫자만 입력하세요!"
-                                requireUser.age = ageValue.filter { $0.isNumber || $0 == " " }
-                            }
-                        }
+                        
                 }
                 .submitLabel(.done)
                  
