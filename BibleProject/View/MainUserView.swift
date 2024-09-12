@@ -53,6 +53,19 @@ struct MainUserView: View {
                     let calorieIntake = Double(nowCalorie)
                     let caloriePercentage = (calorieIntake / calorieGoal) * 100
                     
+                    //이미지 위 화살표 생성
+                    VStack{
+                        Text("캐릭터를 클릭해주세요")
+                            .foregroundColor(.gray)
+//                            .font(.caption)
+                            .font(.system(size: 15))
+                            .padding(.top, 40)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: 50, alignment: .center)
+                    .padding(.top, 15)
+//                    .background(.blue)
+                    
+                    
                     // MARK: 이미지 클릭 시 칼로리 기입
                     NavigationLink(destination: InputFoodCalorie(nowCalorie: $nowCalorie)) {
                         if caloriePercentage < 0 {
@@ -102,7 +115,8 @@ struct MainUserView: View {
                                 }
                         }
                     }
-                    Text("\(user.nickName)님 반갑습니다")
+                    Text("\(user.nickName)님")
+                        .font(.system(size: 30))
                     
                     // MARK: 오늘의 칼로리
                     VStack(spacing: 16) {
@@ -115,6 +129,7 @@ struct MainUserView: View {
                                 .frame(maxWidth: .infinity)
                         }
                         .padding(.horizontal)
+                        .padding(.top, 40)
                         
                         // HStack for delCalorie omitted
                     }
@@ -124,6 +139,7 @@ struct MainUserView: View {
                         Text("현재 칼로리: ")
                         Text("\(nowCalorie)")
                     }
+//                    .padding(.top, 30)
                     
                     // MARK: 권장 칼로리 Alert
                     Button(action: {
@@ -131,6 +147,7 @@ struct MainUserView: View {
                     }) {
                         Text("나의 권장 칼로리 확인하기")
                     }
+//                    .padding(30)
                     
                     // MARK: 내 정보 Alert
                     Button(action: {
@@ -227,6 +244,7 @@ struct MainUserView: View {
         alertMessage = "권장 칼로리는 \(recommendedCalories) 입니다."
         showAlert = true
     }
+    
 }
 
 

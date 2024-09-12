@@ -87,77 +87,59 @@ struct UserInfo: View {
                         .frame(width: 300, height: 300)
                 }
                 .padding(.bottom, -50)
-                .offset(y: -30)
+                .offset(y: 20)
 
+                
                 HStack {
-                    Text("닉네임: ")
-                        .frame(width: 80, alignment: .leading)
-                    TextField("닉네임", text: $requireUser.nickName)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                        .onAppear {
-                            UITextField.appearance().clearButtonMode = .whileEditing
+                    VStack(spacing: 20){
+                        TextField("닉네임", text: $requireUser.nickName)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .textInputAutocapitalization(.never)
+                            .disableAutocorrection(true)
+                            .onAppear {
+                                UITextField.appearance().clearButtonMode = .whileEditing
+                            }
+                        
+                        HStack {
+                            Button(action: {
+                                self.requireUser.gender = true
+                            }, label: {
+                                Text("남성")
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(self.requireUser.gender == true ? Color.blue : Color.gray)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
+                            })
+                            
+                            Button(action: {
+                                self.requireUser.gender = false
+                            }, label: {
+                                Text("여성")
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(self.requireUser.gender == false ? Color.pink : Color.gray)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
+                            })
                         }
-                }
-                .submitLabel(.done)
-
-                HStack {
-                    Text("성별: ")
-                        .frame(width: 80, alignment: .leading)
-                    Button(action: {
-                        self.requireUser.gender = true
-                    }, label: {
-                        Text("남성")
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(self.requireUser.gender == true ? Color.blue : Color.gray)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    })
-                    
-                    Button(action: {
-                        self.requireUser.gender = false
-                    }, label: {
-                        Text("여성")
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(self.requireUser.gender == false ? Color.pink : Color.gray)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    })
-                }
-
-                HStack {
-                    Text("키: ")
-                        .frame(width: 80, alignment: .leading)
-                    TextField("키", text: $requireUser.height)
-                        .keyboardType(.decimalPad)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
                         
-                }
-                .submitLabel(.done)
-
-                HStack {
-                    Text("몸무게: ")
-                        .frame(width: 80, alignment: .leading)
-                    TextField("몸무게", text: $requireUser.weight)
-                        .keyboardType(.decimalPad)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        TextField("키", text: $requireUser.height)
+                            .keyboardType(.decimalPad)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
                         
-                }
-                .submitLabel(.done)
-
-                HStack {
-                    Text("나이: ")
-                        .frame(width: 80, alignment: .leading)
-                    TextField("나이", text: $requireUser.age)
-                        .submitLabel(.done)
-                        .keyboardType(.numberPad)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        TextField("몸무게", text: $requireUser.weight)
+                            .keyboardType(.decimalPad)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
                         
+                        TextField("나이", text: $requireUser.age)
+                            .submitLabel(.done)
+                            .keyboardType(.numberPad)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }
                 }
-                .submitLabel(.done)
+                .padding(30)
+
                  
                 // MARK: 생성 버튼
                 Button(action: {
@@ -197,7 +179,6 @@ struct UserInfo: View {
         }
     }
 }
-
 
 extension View {
     func hideKeyboardUserInfo(){

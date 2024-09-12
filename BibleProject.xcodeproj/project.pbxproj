@@ -132,7 +132,7 @@
 			children = (
 				671EAAAA2C674446000E07E9 /* mainPageView */,
 				671EAAA72C672DB3000E07E9 /* Model */,
-				67341E9B2C60BBC700808340 /* User */,
+				67341E9B2C60BBC700808340 /* View */,
 				67341E6F2C60726600808340 /* BibleProjectApp.swift */,
 				67341E712C60726600808340 /* ContentView.swift */,
 				67341E732C60726800808340 /* Assets.xcassets */,
@@ -166,7 +166,7 @@
 			path = BibleProjectUITests;
 			sourceTree = "<group>";
 		};
-		67341E9B2C60BBC700808340 /* User */ = {
+		67341E9B2C60BBC700808340 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				67341E992C60734100808340 /* UserInfo.swift */,
@@ -175,7 +175,7 @@
 				671EAAAF2C6CD389000E07E9 /* CalendarView.swift */,
 				671EAAB12C6DCA47000E07E9 /* UserSetting.swift */,
 			);
-			path = User;
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
