@@ -29,7 +29,7 @@ struct FirstPageView: View {
                     Image("TitleImage1")
                         .resizable()
                         .frame(maxWidth: 130, maxHeight: 50)
-                        .padding()
+                        .padding() 
                         
                 }
                 .transition(.opacity)
