@@ -19,17 +19,18 @@ struct FirstPageView: View {
             } else {
                 VStack {
                     
-                    Image("Image0")
+                    Image("newImage1")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 200, height: 200)
                         .padding(.top, 5)
 
                     // 앱 이름 텍스트
-                    Text("Stop Eat")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .padding(.top, 20)
+                    Image("TitleImage1")
+                        .resizable()
+                        .frame(maxWidth: 130, maxHeight: 50)
+                        .padding()
+                        
                 }
                 .transition(.opacity)
                 .onAppear {

@@ -69,49 +69,49 @@ struct MainUserView: View {
                     // MARK: 이미지 클릭 시 칼로리 기입
                     NavigationLink(destination: InputFoodCalorie(nowCalorie: $nowCalorie)) {
                         if caloriePercentage < 0 {
-                            Image("Image4")
+                            Image("newImage0")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 200, height: 200)
                                 .colorMultiply(basicColor.selectedColor)
                                 .onAppear {
-                                    basicColor.selectedImage = "Image4"
+                                    basicColor.selectedImage = "newImage0"
                                 }
                         } else if caloriePercentage == 0 {
-                            Image("Image0")
+                            Image("newImage1")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 200, height: 200)
                                 .colorMultiply(basicColor.selectedColor)
                                 .onAppear {
-                                    basicColor.selectedImage = "Image0"
+                                    basicColor.selectedImage = "newImage1"
                                 }
                         } else if caloriePercentage <= 70 {
-                            Image("Image1")
+                            Image("newImage2")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 200, height: 200)
                                 .colorMultiply(basicColor.selectedColor)
                                 .onAppear {
-                                    basicColor.selectedImage = "Image1"
+                                    basicColor.selectedImage = "newImage2"
                                 }
                         } else if caloriePercentage <= 100 {
-                            Image("Image2")
+                            Image("newImage3")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 200, height: 200)
                                 .colorMultiply(basicColor.selectedColor)
                                 .onAppear {
-                                    basicColor.selectedImage = "Image2"
+                                    basicColor.selectedImage = "newImage3"
                                 }
                         } else {
-                            Image("Image3")
+                            Image("newImage4")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 200, height: 200)
                                 .colorMultiply(basicColor.selectedColor)
                                 .onAppear {
-                                    basicColor.selectedImage = "Image3"
+                                    basicColor.selectedImage = "newImage4"
                                 }
                         }
                     }
@@ -246,8 +246,6 @@ struct MainUserView: View {
     }
     
 }
-
-
 
 //외부 공간 클릭시 키보드 내려감
 extension View{

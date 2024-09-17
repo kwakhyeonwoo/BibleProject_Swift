@@ -15,45 +15,68 @@ struct SecondPageView: View {
     var body: some View {
         
         NavigationStack {
-            VStack(spacing: 20) {
-                Spacer()
-                
+            VStack(alignment: .leading) {
+                Image("TitleImage1")
+                    .resizable()
+                    .frame(maxWidth: 130, maxHeight: 50)
+                    .padding()
                 VStack(spacing: 20) {
-                    TextField("ID", text: $id)
-                        .keyboardType(.webSearch)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal)
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                        .frame(maxWidth: .infinity)
-                        .submitLabel(.done)
-                        .onAppear{
-                            UITextField.appearance().clearButtonMode = .whileEditing
-                        }
+                    Spacer()
+                    
+                    VStack(spacing: 20) {
+                        TextField("ID", text: $id)
+                            .keyboardType(.webSearch)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.horizontal)
+                            .textInputAutocapitalization(.never)
+                            .disableAutocorrection(true)
+                            .frame(maxWidth: .infinity)
+                            .submitLabel(.done)
+                            .onAppear{
+                                UITextField.appearance().clearButtonMode = .whileEditing
+                            }
 
-                    SecureField("Password", text: $password)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal)
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                        .frame(maxWidth: .infinity)
-                        .submitLabel(.done)
-                        .onAppear{
-                            UITextField.appearance().clearButtonMode = .whileEditing
-                        }
-                }
-                .padding(.horizontal)
+                        SecureField("Password", text: $password)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.horizontal)
+                            .textInputAutocapitalization(.never)
+                            .disableAutocorrection(true)
+                            .frame(maxWidth: .infinity)
+                            .submitLabel(.done)
+                            .onAppear{
+                                UITextField.appearance().clearButtonMode = .whileEditing
+                            }
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom, 10)
 
-                HStack(spacing: 20) {
-                    // 로그인 버튼
-                    NavigationLink(
-                        destination: UserInfo(requireUser: StateUserModel(), basicColor: ImageBasicColor()),
-                        isActive: $moveUserInfo
-                    ) {
-                        Button(action: {
-                            moveUserInfo = true
+                    HStack(spacing: 20) {
+                        // 로그인 버튼
+                        NavigationLink(
+                            destination: UserInfo(requireUser: StateUserModel(), basicColor: ImageBasicColor()),
+                            isActive: $moveUserInfo
+                        ) {
+                            Button(action: {
+                                moveUserInfo = true
+                            }) {
+                                Text("로그인")
+                                    .font(.subheadline)
+                                    .padding(10)
+                                    .frame(width: 140, height: 40)
+                                    .background(Color.clear)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .stroke(Color.gray, lineWidth: 1)
+                                    )
+                                    .cornerRadius(8)
+                            }
+                        }
+                        
+                        // 회원가입 버튼
+                        NavigationLink(destination: {
+                            // 회원가입 화면 추가
                         }) {
-                            Text("로그인")
+                            Text("회원가입")
                                 .font(.subheadline)
                                 .padding(10)
                                 .frame(width: 140, height: 40)
@@ -64,32 +87,16 @@ struct SecondPageView: View {
                                 )
                                 .cornerRadius(8)
                         }
-                    }
-                    
-                    // 회원가입 버튼
-                    NavigationLink(destination: {
-                        // 회원가입 화면 추가
-                    }) {
-                        Text("회원가입")
-                            .font(.subheadline)
-                            .padding(10)
-                            .frame(width: 140, height: 40)
-                            .background(Color.clear)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color.gray, lineWidth: 1)
-                            )
-                            .cornerRadius(8)
+                        .padding(.horizontal)
                     }
                     .padding(.horizontal)
-                }
-                .padding(.horizontal)
 
-                Spacer()
-            }
-            .padding()
-            .navigationBarTitle("")
+                    Spacer()
+                }
+                .padding(.bottom, 10)
+                .navigationBarTitle("")
             .navigationBarHidden(true)
+            }
         }
     }
 }
