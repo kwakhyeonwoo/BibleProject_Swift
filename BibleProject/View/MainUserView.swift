@@ -54,7 +54,7 @@ struct MainUserView: View {
                     // 현재 칼로리
                     let calorieIntake = Double(nowCalorie)
                     let caloriePercentage = (calorieIntake / calorieGoal) * 100
-                    
+                     
                     //이미지 위 화살표 생성
                     VStack{
                         Text("캐릭터를 클릭해주세요")
