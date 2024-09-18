@@ -166,7 +166,7 @@ struct UserInfo: View {
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 40)
                     
                     // 네비게이션 링크를 숨기고 버튼 클릭 시 네비게이션을 수행
                     NavigationLink(

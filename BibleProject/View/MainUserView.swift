@@ -43,7 +43,9 @@ struct MainUserView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
-                Spacer()
+                Image("TitleImage1")
+                    .resizable()
+                    .frame(maxWidth: 130, maxHeight: 50, alignment: .leading)
                 
                 VStack(alignment: .center, spacing: 16) {
                     
