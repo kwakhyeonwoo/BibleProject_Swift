@@ -42,185 +42,188 @@ struct MainUserView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 20) {
+            VStack(alignment: .leading) {
                 Image("TitleImage1")
                     .resizable()
                     .frame(maxWidth: 130, maxHeight: 50, alignment: .leading)
-                
-                VStack(alignment: .center, spacing: 16) {
+                    .padding()
+                VStack(spacing: 20) {
                     
-                    // 오늘의 칼로리 입력
-                    let calorieGoal = Double(todayCalorie) ?? 1
-                    // 현재 칼로리
-                    let calorieIntake = Double(nowCalorie)
-                    let caloriePercentage = (calorieIntake / calorieGoal) * 100
-                     
-                    //이미지 위 화살표 생성
-                    VStack{
-                        Text("캐릭터를 클릭해주세요")
-                            .foregroundColor(.gray)
-//                            .font(.caption)
-                            .font(.system(size: 15))
-                            .padding(.top, 40)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: 50, alignment: .center)
-                    .padding(.top, 15)
-//                    .background(.blue)
-                    
-                    
-                    // MARK: 이미지 클릭 시 칼로리 기입
-                    NavigationLink(destination: InputFoodCalorie(nowCalorie: $nowCalorie)) {
-                        if caloriePercentage < 0 {
-                            Image("newImage0")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 200, height: 200)
-                                .colorMultiply(basicColor.selectedColor)
-                                .onAppear {
-                                    basicColor.selectedImage = "newImage0"
-                                }
-                        } else if caloriePercentage == 0 {
-                            Image("newImage1")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 200, height: 200)
-                                .colorMultiply(basicColor.selectedColor)
-                                .onAppear {
-                                    basicColor.selectedImage = "newImage1"
-                                }
-                        } else if caloriePercentage <= 70 {
-                            Image("newImage2")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 200, height: 200)
-                                .colorMultiply(basicColor.selectedColor)
-                                .onAppear {
-                                    basicColor.selectedImage = "newImage2"
-                                }
-                        } else if caloriePercentage <= 100 {
-                            Image("newImage3")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 200, height: 200)
-                                .colorMultiply(basicColor.selectedColor)
-                                .onAppear {
-                                    basicColor.selectedImage = "newImage3"
-                                }
-                        } else {
-                            Image("newImage4")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 200, height: 200)
-                                .colorMultiply(basicColor.selectedColor)
-                                .onAppear {
-                                    basicColor.selectedImage = "newImage4"
-                                }
-                        }
-                    }
-                    Text("\(user.nickName)님")
-                        .font(.system(size: 30))
-                    
-                    // MARK: 오늘의 칼로리
-                    VStack(spacing: 16) {
-                        HStack {
-                            Text("오늘의 칼로리:")
-                                .frame(width: 100, alignment: .leading) // 고정 너비 설정
-                            TextField("오늘의 칼로리 입력", text: $todayCalorie)
-                                .keyboardType(.decimalPad)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .frame(maxWidth: .infinity)
-                        }
-                        .padding(.horizontal)
-                        .padding(.top, 40)
+                    VStack(alignment: .center, spacing: 16) {
                         
-                        // HStack for delCalorie omitted
+                        // 오늘의 칼로리 입력
+                        let calorieGoal = Double(todayCalorie) ?? 1
+                        // 현재 칼로리
+                        let calorieIntake = Double(nowCalorie)
+                        let caloriePercentage = (calorieIntake / calorieGoal) * 100
+                         
+                        //이미지 위 화살표 생성
+                        VStack{
+                            Text("캐릭터를 클릭해주세요")
+                                .foregroundColor(.gray)
+    //                            .font(.caption)
+                                .font(.system(size: 15))
+                                .padding(.top, 40)
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: 50, alignment: .center)
+                        .padding(.top, 15)
+    //                    .background(.blue)
+                        
+                        
+                        // MARK: 이미지 클릭 시 칼로리 기입
+                        NavigationLink(destination: InputFoodCalorie(nowCalorie: $nowCalorie)) {
+                            if caloriePercentage < 0 {
+                                Image("newImage0")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 200, height: 200)
+                                    .colorMultiply(basicColor.selectedColor)
+                                    .onAppear {
+                                        basicColor.selectedImage = "newImage0"
+                                    }
+                            } else if caloriePercentage == 0 {
+                                Image("newImage1")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 200, height: 200)
+                                    .colorMultiply(basicColor.selectedColor)
+                                    .onAppear {
+                                        basicColor.selectedImage = "newImage1"
+                                    }
+                            } else if caloriePercentage <= 70 {
+                                Image("newImage2")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 200, height: 200)
+                                    .colorMultiply(basicColor.selectedColor)
+                                    .onAppear {
+                                        basicColor.selectedImage = "newImage2"
+                                    }
+                            } else if caloriePercentage <= 100 {
+                                Image("newImage3")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 200, height: 200)
+                                    .colorMultiply(basicColor.selectedColor)
+                                    .onAppear {
+                                        basicColor.selectedImage = "newImage3"
+                                    }
+                            } else {
+                                Image("newImage4")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 200, height: 200)
+                                    .colorMultiply(basicColor.selectedColor)
+                                    .onAppear {
+                                        basicColor.selectedImage = "newImage4"
+                                    }
+                            }
+                        }
+                        Text("\(user.nickName)님")
+                            .font(.system(size: 30))
+                        
+                        // MARK: 오늘의 칼로리
+                        VStack(spacing: 16) {
+                            HStack {
+                                Text("오늘의 칼로리:")
+                                    .frame(width: 100, alignment: .leading) // 고정 너비 설정
+                                TextField("오늘의 칼로리 입력", text: $todayCalorie)
+                                    .keyboardType(.decimalPad)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .padding(.horizontal)
+                            .padding(.top, 40)
+                            
+                            // HStack for delCalorie omitted
+                        }
+                        
+                        // MARK: 현재 칼로리 보여주기
+                        HStack {
+                            Text("현재 칼로리: ")
+                            Text("\(nowCalorie)")
+                        }
+    //                    .padding(.top, 30)
+                        
+                        // MARK: 권장 칼로리 Alert
+                        Button(action: {
+                            SuggestCal()
+                        }) {
+                            Text("나의 권장 칼로리 확인하기")
+                        }
+    //                    .padding(30)
+                        
+                        // MARK: 내 정보 Alert
+                        Button(action: {
+                            showAlert = true
+                            userMessage = "\n닉네임: \(user.nickName)\n" +
+                                          "성별: \(user.gender == true ? "남성" : "여성")\n" +
+                                          "키: \(user.height) cm\n" +
+                                          "몸무게: \(user.weight) kg\n" +
+                                          "나이: \(user.age)세"
+                            alertMessage = userMessage
+                        }) {
+                            Text("내 정보 확인하기")
+                        }
+                        
                     }
+                    .padding()
                     
-                    // MARK: 현재 칼로리 보여주기
-                    HStack {
-                        Text("현재 칼로리: ")
-                        Text("\(nowCalorie)")
+                    Spacer()
+                    
+                    // MARK: TabView - 캘린더
+                    HStack(spacing: 100) {
+                        NavigationLink(destination: CalendarView(), tag: 1, selection: $selectedTab) {
+                            Button(action: {
+                                selectedTab = 1
+                            }) {
+                                VStack {
+                                    Image(systemName: "calendar")
+                                        .font(.system(size: 30))
+                                }
+                            }
+                        }
+                        
+                        // MARK: TabView - 홈 화면
+                        NavigationLink(destination: UserInfo(requireUser: StateUserModel(), basicColor: ImageBasicColor()), tag: 2, selection: $selectedTab) {
+                            Button(action: {
+    //                            selectedTab = 2
+                            }) {
+                                VStack {
+                                    Image(systemName: "house")
+                                        .font(.system(size: 30))
+                                }
+                            }
+                        }
+                        
+                        // MARK: TabView - 유저 정보
+                        NavigationLink(destination: UserSetting(userRequire: user, basicColor: basicColor), tag: 3, selection: $selectedTab) {
+                            Button(action: {
+                                selectedTab = 3
+                            }) {
+                                VStack {
+                                    Image(systemName: "person.fill")
+                                        .font(.system(size: 30))
+                                }
+                            }
+                        }
                     }
-//                    .padding(.top, 30)
-                    
-                    // MARK: 권장 칼로리 Alert
-                    Button(action: {
-                        SuggestCal()
-                    }) {
-                        Text("나의 권장 칼로리 확인하기")
-                    }
-//                    .padding(30)
-                    
-                    // MARK: 내 정보 Alert
-                    Button(action: {
-                        showAlert = true
-                        userMessage = "\n닉네임: \(user.nickName)\n" +
-                                      "성별: \(user.gender == true ? "남성" : "여성")\n" +
-                                      "키: \(user.height) cm\n" +
-                                      "몸무게: \(user.weight) kg\n" +
-                                      "나이: \(user.age)세"
-                        alertMessage = userMessage
-                    }) {
-                        Text("내 정보 확인하기")
-                    }
-                    
+                    .font(.headline)
+                    // TabView가 사라지지 않도록 추가적인 공간 확보
+                    .padding(.bottom, 0)
                 }
-                .padding()
-                
-                Spacer()
-                
-                // MARK: TabView - 캘린더
-                HStack(spacing: 100) {
-                    NavigationLink(destination: CalendarView(), tag: 1, selection: $selectedTab) {
-                        Button(action: {
-                            selectedTab = 1
-                        }) {
-                            VStack {
-                                Image(systemName: "calendar")
-                                    .font(.system(size: 30))
-                            }
-                        }
-                    }
-                    
-                    // MARK: TabView - 홈 화면
-                    NavigationLink(destination: UserInfo(requireUser: StateUserModel(), basicColor: ImageBasicColor()), tag: 2, selection: $selectedTab) {
-                        Button(action: {
-//                            selectedTab = 2
-                        }) {
-                            VStack {
-                                Image(systemName: "house")
-                                    .font(.system(size: 30))
-                            }
-                        }
-                    }
-                    
-                    // MARK: TabView - 유저 정보
-                    NavigationLink(destination: UserSetting(userRequire: user, basicColor: basicColor), tag: 3, selection: $selectedTab) {
-                        Button(action: {
-                            selectedTab = 3
-                        }) {
-                            VStack {
-                                Image(systemName: "person.fill")
-                                    .font(.system(size: 30))
-                            }
-                        }
-                    }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .alert(isPresented: $showAlert) {
+                    Alert(
+                        title: Text("\(user.nickName)님의 정보"),
+                        message: Text(alertMessage),
+                        dismissButton: .default(Text("확인"))
+                    )
                 }
-                .font(.headline)
-                // TabView가 사라지지 않도록 추가적인 공간 확보
-                .padding(.bottom, 0)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .alert(isPresented: $showAlert) {
-                Alert(
-                    title: Text("\(user.nickName)님의 정보"),
-                    message: Text(alertMessage),
-                    dismissButton: .default(Text("확인"))
-                )
-            }
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
             .background(KeyBoardDismissViewMainUserView().edgesIgnoringSafeArea(.all))
+            }
         }
     }
     

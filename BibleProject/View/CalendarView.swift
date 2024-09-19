@@ -12,12 +12,25 @@ struct CalendarView : View{
     
     @State private var date = Date()
     var body: some View{
-        DatePicker(
-            "Start Date",
-            selection: $date,
-            displayedComponents: [.date]
-        )
-        .datePickerStyle(.graphical)
+        VStack(alignment: .leading) {
+            Image("TitleImage1")
+                .resizable()
+                .frame(maxWidth: 130, maxHeight: 50)
+//                .background(.yellow)
+                .padding()
+                
+            VStack(alignment:.center){
+                DatePicker(
+                    "Start Date",
+                    selection: $date,
+                    displayedComponents: [.date]
+                )
+                .datePickerStyle(.graphical)
+            }
+        }
+        Spacer()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+//        .background(.blue)
     }
 }
 
